@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tufts EE 123 / BME 123: Bioelectricity — Math Academy-Style Knowledge Graph</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #161922;
+      --surface-elevated: #1e2230;
+      --border: #2a3042;
+      --text: #f0f2f8;
+      --text-secondary: #a9b1c7;
+      --text-muted: #6e7790;
+      --accent: #3b82f6;
+      --green: #10b981;
+      --cyan: #06b6d4;
+      --blue: #3b82f6;
+      --gray: #9ca3af;
+      --purple: #a855f7;
+      --orange: #f59e0b;
+      --pink: #ec4899;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      padding: 24px;
+    }
+    .container { max-width: 1480px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+    header {
+      display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 16px;
+      border-bottom: 1px solid var(--border); padding-bottom: 16px;
+    }
+    h1 { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
+    .subtitle { color: var(--text-secondary); font-size: 14px; max-width: 820px; margin-top: 4px; }
+    .stats-row { display: flex; gap: 16px; flex-wrap: wrap; }
+    .stat-box {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 10px 16px; min-width: 150px;
+    }
+    .stat-val { font-size: 20px; font-weight: 700; color: var(--green); }
+    .stat-lbl { font-size: 12px; color: var(--text-muted); }
+    .progress-bar-wrap {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px;
+    }
+    .progress-labels { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-secondary); margin-bottom: 8px; }
+    .progress-track { height: 10px; background: var(--surface-elevated); border-radius: 999px; overflow: hidden; display: flex; }
+    .toolbar { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .tabs, .controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+    button, .pill, select, input[type="text"] {
+      background: var(--surface); color: var(--text); border: 1px solid var(--border);
+      padding: 6px 12px; border-radius: 6px; font-size: 13px; cursor: pointer;
+    }
+    button:hover, .pill:hover { border-color: var(--accent); }
+    .pill.active { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+    input[type="text"] { cursor: text; min-width: 240px; }
+    .legend { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; font-size: 12px; color: var(--text-secondary); }
+    .legend-item { display: flex; align-items: center; gap: 6px; cursor: pointer; padding: 4px 8px; border-radius: 6px; border: 1px solid transparent; }
+    .legend-item.active { border-color: var(--border); background: var(--surface); }
+    .swatch { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
+    .main-grid { display: grid; grid-template-columns: 1.65fr 1fr; gap: 20px; align-items: start; }
+    @media (max-width: 1100px) { .main-grid { grid-template-columns: 1fr; } }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .card-header {
+      padding: 10px 16px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 600;
+      display: flex; justify-content: space-between; align-items: center; background: var(--surface-elevated);
+    }
+    .card-body { padding: 16px; }
+    .eq-box {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 12.5px; background: var(--bg); border: 1px solid var(--border);
+      padding: 8px 10px; border-radius: 6px; margin-top: 6px; color: #93c5fd;
+    }
+    .callout {
+      background: rgba(59, 130, 246, 0.08); border: 1px solid rgba(59, 130, 246, 0.35);
+      border-radius: 8px; padding: 12px; font-size: 13px; margin-top: 12px;
+    }
+    .callout-title { font-weight: 600; color: #60a5fa; margin-bottom: 4px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { background: var(--surface-elevated); color: var(--text-secondary); font-weight: 600; }
+    .frontier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: start; }
+    @media (max-width: 1000px) { .frontier-grid { grid-template-columns: 1fr; } }
+    .node-item { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 12px; margin-bottom: 10px; }
+    .badge { font-size: 11px; padding: 2px 6px; border-radius: 4px; background: var(--surface-elevated); border: 1px solid var(--border); }
+    a { color: #60a5fa; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Tufts EE 123 / BME 123: Bioelectricity — Knowledge Graph</h1>
+        <p class="subtitle">
+          Math Academy-style Prerequisite Directed Acyclic Graph (DAG) extracted from Prof. Joel Grodstein's Tufts Bioelectricity course
+          (<a href="https://www.ece.tufts.edu/ee/123/" target="_blank">EE 123</a>,
+          <a href="https://www.ece.tufts.edu/en/1EIY/" target="_blank">EN 01</a>,
+          <code>BITSEY</code> Python simulations, and
+          <a href="https://docs.google.com/document/d/e/2PACX-1vQBWQb4UqAoRQK3kMLdN6kb8nKsgqwH9GTqLkUIVohVWyXEAriEcHnKqSz4x5hTZezIcdN15U_wqXJT/pub" target="_blank">Khan Academy Physics/EE refreshers</a>).
+        </p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="stat-val" id="stat-xp">0 / 795 XP</div>
+          <div class="stat-lbl">Curriculum Mastery</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" id="stat-ready" style="color: var(--accent)">0 Modules</div>
+          <div class="stat-lbl">Unlocked Frontier</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-val" style="color: var(--text)">27 Nodes · 36 Edges</div>
+          <div class="stat-lbl">7 Tracks · Tiers 0–6</div>
+        </div>
+      </div>
+    </header>
+
+    <div class="progress-bar-wrap">
+      <div class="progress-labels">
+        <span id="prog-left">0% Complete</span>
+        <span id="prog-right">0 / 795 XP</span>
+      </div>
+      <div class="progress-track" id="prog-bar"></div>
+    </div>
+
+    <div class="toolbar">
+      <div class="tabs">
+        <button class="pill active" data-view="dag">Prerequisite DAG Explorer</button>
+        <button class="pill" data-view="frontier" id="tab-frontier">Math Academy Frontier</button>
+        <button class="pill" data-view="khan">Khan Academy Bridge &amp; Quiz</button>
+        <button class="pill" data-view="table">Full Module Table</button>
+      </div>
+      <div class="controls">
+        <input type="text" id="search-input" placeholder="Search modules (e.g. Nernst, HH, ECG, Khan)…" />
+        <button id="btn-master-prereqs">Master All Prereqs</button>
+        <button id="btn-reset">Reset Progress</button>
+      </div>
+    </div>
+
+    <div class="legend" id="legend-bar"></div>
+
+    <!-- VIEW 1: DAG -->
+    <div id="view-dag" class="main-grid">
+      <div class="card">
+        <div class="card-header">
+          <span>Prerequisite Knowledge Graph (Tiers 0 → 6)</span>
+          <span style="font-weight:400; color: var(--text-muted)">Click any node to inspect &amp; trace dependencies</span>
+        </div>
+        <div class="card-body" style="overflow-x: auto; padding: 12px;">
+          <svg id="dag-svg" width="100%" viewBox="0 0 980 860" style="min-width: 780px; background: #0b0d13; border-radius: 8px; border: 1px solid var(--border); display: block;"></svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span>Module Inspector</span>
+          <span class="badge" id="insp-badge">U1.5 · 40 XP</span>
+        </div>
+        <div class="card-body" id="inspector-body"></div>
+      </div>
+    </div>
+
+    <!-- VIEW 2: FRONTIER -->
+    <div id="view-frontier" style="display: none;">
+      <div class="frontier-grid">
+        <div class="card">
+          <div class="card-header"><span>Ready Now (Prerequisites Met)</span><span class="badge" id="cnt-ready">0</span></div>
+          <div class="card-body" id="list-ready"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><span>Locked Downstream Modules</span><span class="badge" id="cnt-locked">0</span></div>
+          <div class="card-body" id="list-locked"></div>
+        </div>
+        <div class="card">
+          <div class="card-header"><span>Mastered Knowledge Points</span><span class="badge" id="cnt-mastered">0</span></div>
+          <div class="card-body" id="list-mastered"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 3: KHAN -->
+    <div id="view-khan" style="display: none;">
+      <div class="card">
+        <div class="card-header">
+          <span>Prof. Joel Grodstein's Khan Academy Refresher Mapping &amp; Placement Quiz</span>
+          <span class="badge">backgrounders_quiz.pdf</span>
+        </div>
+        <div class="card-body">
+          <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 16px;">
+            In the EE 123 <code>backgrounders</code> guide, Joel Grodstein assigns specific sections from
+            <a href="https://www.khanacademy.org/science/ap-physics-2" target="_blank">Khan Academy AP Physics 2</a> and
+            <a href="https://www.khanacademy.org/science/electrical-engineering" target="_blank">Khan Academy Electrical Engineering</a>
+            so students can (1) model a cell's ion channels and pumps as an equivalent circuit and (2) analyze multicellular networks coupled by gap junctions.
+          </p>
+          <table>
+            <thead>
+              <tr>
+                <th>Node</th>
+                <th>Khan Academy Section</th>
+                <th>Grodstein's Scope Notes</th>
+                <th>Bioelectric Application in EE 123</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>KA.P1</code></td><td>AP Physics 2 · Charge, Field &amp; Potential</td><td>Charge, electric force, E-field concepts; skip exact Coulomb's Law vector math</td><td>Intracellular/extracellular ions (Na+, K+, Cl-, P-), bulk electroneutrality &amp; drift force f = qE</td></tr>
+              <tr><td><code>KA.P2</code></td><td>AP Physics 2 &amp; EE Intro · Voltage</td><td>Voltage as J/C work per unit charge and relative potential difference</td><td>Membrane potential V_mem relative to ECF ground (0 V) and ATPase pump work</td></tr>
+              <tr><td><code>KA.P3</code></td><td>AP Physics 2 &amp; EE · Current &amp; Capacitors</td><td>Current I = dQ/dt; parallel &amp; series capacitance Q = CV</td><td>Lipid bilayer patch capacitance (0.05 F/m²), QSS charge slewing &amp; myelin low-C propagation</td></tr>
+              <tr><td><code>KA.C1</code></td><td>AP Physics 2 Circuits &amp; EE Circuit Analysis</td><td>Batteries, current sources, resistors, Ohm's Law V=IR &amp; G=1/R; skip DC Ammeters/Voltmeters</td><td>Nernst batteries (V_N), ion-channel conductances (G_Na, G_K, G_Cl), and Na+/K+ pump current sources</td></tr>
+              <tr><td><code>KA.C2</code></td><td>AP Physics 2 Circuits &amp; EE Circuit Analysis</td><td>Series/parallel resistors, voltage &amp; current dividers, KVL &amp; KCL</td><td>Sam &amp; Max Circuit Fluency Drills; 5-cell planarian GJ resistor dividers</td></tr>
+              <tr><td><code>KA.C3</code></td><td>EE · Circuit Analysis → Nodal Analysis</td><td>Formalized Nodal Analysis (KCL at unknown node voltages)</td><td>Solving for QSS V_mem at the ICF node with 3 Nernst batteries and 2 pump current sources (-71.13 mV)</td></tr>
+              <tr><td><code>KA.C4</code></td><td>EE Circuit Analysis &amp; Circuits Backgrounder</td><td>Thévenin/Norton equivalents and RC charging time constants</td><td>Reducing each cell to (V_th, R_th) to analyze multicellular gap junctions and RC delay</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 4: TABLE -->
+    <div id="view-table" style="display: none;">
+      <div class="card">
+        <div class="card-header"><span>Complete Syllabus &amp; Module Directory (27 Nodes)</span></div>
+        <div class="card-body" style="overflow-x: auto; padding: 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Code</th><th>Title</th><th>Track</th><th>Tier</th><th>XP</th><th>Prerequisites</th><th>Unlocks</th><th>Tufts Source</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const TRACKS = {
+      KHAN_PHYS: { name: "Khan Physics 2", color: "#06b6d4" },
+      KHAN_EE: { name: "Khan Circuits", color: "#3b82f6" },
+      FOUNDATIONS: { name: "Math / Python / Bio", color: "#9ca3af" },
+      UNIT_1: { name: "Unit 1: Cell Vmem", color: "#10b981" },
+      UNIT_2: { name: "Unit 2: Neurons & sEMG", color: "#a855f7" },
+      UNIT_3: { name: "Unit 3: Cardiac & ECG", color: "#f59e0b" },
+      UNIT_4: { name: "Unit 4: Morphogenesis", color: "#ec4899" }
+    };
+
+    const NODES = [
+      { id: "KA-PHYS-01", code: "KA.P1", title: "Electric Charge, Valence & Coulomb Forces", track: "KHAN_PHYS", tier: 0, xp: 15, kind: "Khan Prereq", source: "Khan Academy AP Physics 2; Lec 1a Slides 7-14", summary: "Atomic origin of charge (Na+, K+, Cl-, Proteins P-), bulk electroneutrality in ICF/ECF, and electrostatic attraction/repulsion via F = qE.", equations: ["F = k_e * (q_1 * q_2) / r^2", "f = q * E", "sum(z_i * [ion_i]) approx 0"], diagnostic: "Why does separating a tiny fraction of Na+ and Cl- across a 7.5 nm membrane create a strong electric field while the bulk ICF and ECF remain nearly charge neutral?", prerequisites: [] },
+      { id: "FND-MATH-01", code: "FND.M1", title: "Exponential Relaxation ODEs & Vector Dot Products", track: "FOUNDATIONS", tier: 0, xp: 20, kind: "Foundation", source: "Tufts MATH 32; Sim Lab 4; Lec 3 Slide 25", summary: "First-order linear ODEs for channel gating relaxation dx/dt = (x_inf - x)/tau, Hill function non-linearities, and 2D vector dot-product projections for cardiac dipole leads.", equations: ["dx/dt = (x_inf(V) - x) / tau_x", "V_lead = p_dipole . u_lead = |p| |u| cos(theta)"], diagnostic: "If m(0) = 0.4 and m_inf jumps to 0.9 with tau_m = 10 s, write m(t) and compare its slope to tau_m = 20 s.", prerequisites: [] },
+      { id: "FND-BIO-01", code: "FND.B1", title: "Central Dogma, Transcription Factors & GRN Logic", track: "FOUNDATIONS", tier: 0, xp: 20, kind: "Foundation", source: "EE 123 Lecture 4a: Biology Backgrounder", summary: "The cell as a processor: DNA codons as software, transcription (DNA -> mRNA) and translation (mRNA -> protein), promoters as conditional if-then statements, and transcription factors (TFs) forming gene regulatory networks.", equations: ["DNA (4^3 = 64 codons) -> mRNA -> Protein", "Hill Inverter: H_inv([X]) = 1 / (1 + ([X]/K_m)^N)"], diagnostic: "If every cell in your body has the exact same DNA software, how do promoters and transcription factors allow a toe cell and an eye cell to express different proteins?", prerequisites: [] },
+      { id: "KA-PHYS-02", code: "KA.P2", title: "Electric Potential, Work & Relative Voltage", track: "KHAN_PHYS", tier: 1, xp: 15, kind: "Khan Prereq", source: "Khan Academy AP Physics 2; Lec 1a Slides 15-18", summary: "Voltage as potential energy difference per unit charge (1 V = 1 J/C), why voltage is relative to a reference (ECF = 0 V), and how ion pumps perform work.", equations: ["V = W / q", "E = V_mem / t_m", "V_mem = V_ICF - V_ECF"], diagnostic: "If V_mem = -70 mV with ECF defined as 0 V, how much electrostatic work is required to move one mole of Na+ from ICF to ECF?", prerequisites: ["KA-PHYS-01"] },
+      { id: "U1-BIO-01", code: "U1.1", title: "Fick's Law of Diffusion & Skittles Lab", track: "UNIT_1", tier: 1, xp: 25, kind: "Hardware Lab", source: "Lec 1a Slides 21-28; Real Lab 1 (lab_skittles.pdf)", summary: "Thermal random walk of particles, Fick's First Law (j_diff = -D dC/dx), and why diffusion time scales quadratically with distance (t ~ L^2 / D).", equations: ["j_diff = -D * (dC / dx)", "<x^2> = 2 * D * t  =>  t_diff propto (n * d)^2"], diagnostic: "Lab 1: Why does diffusing over twice the distance take 4x as much time, and why do Skittles color zones form sharp boundaries?", prerequisites: ["KA-PHYS-01", "FND-MATH-01"] },
+      { id: "FND-PROG-01", code: "FND.CS1", title: "Python, NumPy Vectorization & BITSEY Engine", track: "FOUNDATIONS", tier: 1, xp: 25, kind: "Foundation", source: "EN 01 Python; EE 123 sim.py, sim_toolbox.py", summary: "Using NumPy 2D arrays cc_cells[n_ions, n_cells] and Dm_array[n_ions, n_cells] to simulate ion fluxes, adaptive explicit vs. BDF implicit ODE integration, and Gate objects in BITSEY.", equations: ["slew_cc = (f_pump + f_GHK + f_GJ) * (A_cell / V_cell) + f_gen_decay", "V_mem = F * sum_i(z_i * cc_cells[i]) * V_cell / (A_cell * C_m)"], diagnostic: "In BITSEY's sim.py, why are all ion fluxes normalized per m^2 of total cell membrane area before multiplying by cell_sa / cell_vol?", prerequisites: ["FND-MATH-01"] },
+      { id: "KA-PHYS-03", code: "KA.P3", title: "Electric Current & Membrane Capacitance", track: "KHAN_PHYS", tier: 2, xp: 20, kind: "Khan Prereq", source: "Khan Academy AP Physics 2 & EE; Quiz Q1b", summary: "Current as rate of charge flow (I = dQ/dt), and parallel/series capacitor relations (Q = C*V) for the cell lipid bilayer.", equations: ["I = dQ / dt = z * F * J_ion * A_cell", "Q = C_mem * V_mem"], diagnostic: "Backgrounders Quiz: How much charge is stored on a 50 nF capacitor at 100 mV? How does adding a thick myelin sheath change membrane capacitance?", prerequisites: ["KA-PHYS-02"] },
+      { id: "KA-CKT-01", code: "KA.C1", title: "Ohm's Law, Conductance & Circuit Elements", track: "KHAN_EE", tier: 2, xp: 20, kind: "Khan Prereq", source: "Khan Academy EE; Circuits Backgrounder; Quiz Q1a", summary: "Ideal voltage sources (Nernst potentials), current sources (ATPase pumps), linear resistors (ion channels), Ohm's Law (V = IR), and conductance (G = 1/R).", equations: ["V = I * R", "G = 1 / R,  I = G * (V_1 - V_2)"], diagnostic: "Backgrounders Quiz: How much current flows through a 20 Ohm resistor with 100 mV across it, in amps and in mA?", prerequisites: ["KA-PHYS-02"] },
+      { id: "U1-BIO-02", code: "U1.2", title: "Ion Drift Flux, Mobility & Membrane Ohm's Law", track: "UNIT_1", tier: 2, xp: 25, kind: "Lecture", source: "EE 123 Lecture 1a Slides 29-40", summary: "Electrostatic drift of ions in a membrane electric field, terminal velocity from viscous drag (v = mu * f), Einstein relation (mu = D / k_B T), and microscopic Ohm's Law.", equations: ["v_drift = mu_ion * z * q * (V_mem / L)", "j_drift = -C_ion * mu_ion * z * q * (V_mem / L)"], diagnostic: "Why does a constant electric field produce a constant ion drift velocity rather than constant acceleration across the channel?", prerequisites: ["U1-BIO-01", "KA-PHYS-02", "KA-CKT-01"] },
+      { id: "KA-CKT-02", code: "KA.C2", title: "KVL, KCL, Series/Parallel & Dividers", track: "KHAN_EE", tier: 3, xp: 25, kind: "Khan Prereq", source: "Khan Academy EE; Sam & Max Problems Slides 4-13", summary: "Kirchhoff's Voltage Law (KVL), Kirchhoff's Current Law (KCL), series/parallel resistor combinations, and voltage/current dividers.", equations: ["sum_loop V_k = 0 (KVL)", "sum_node I_k = 0 (KCL)", "V_out = V_in * R_2 / (R_1 + R_2)"], diagnostic: "In a voltage divider between +80 mV (40 Ohm) and -80 mV (10 Ohm), why does the middle node settle much closer to -80 mV?", prerequisites: ["KA-CKT-01", "KA-PHYS-03"] },
+      { id: "U1-BIO-03", code: "U1.3", title: "Semi-Permeable Membranes & Nernst Equation", track: "UNIT_1", tier: 3, xp: 35, kind: "Lecture", source: "EE 123 Lecture 1a Slides 41-59", summary: "Equilibrium potential where diffusion balances drift (j_diff + j_drift = 0), deriving V_Nernst, and checking Na+ (+57 mV), K+ (-78 mV), and Cl- (-62 mV) in giant squid axons.", equations: ["j_diff + j_drift = 0", "V_Nernst = (26 mV / z) * ln([ion]_ECF / [ion]_ICF)"], diagnostic: "In a cell resting at V_mem = -60 mV, why does Cl- satisfy the Nernst equation whereas Na+ has both drift and diffusion pointing inward?", prerequisites: ["U1-BIO-02"] },
+      { id: "KA-CKT-03", code: "KA.C3", title: "Nodal Analysis of Multi-Branch Cell Circuits", track: "KHAN_EE", tier: 4, xp: 30, kind: "Khan Prereq", source: "Khan Academy EE (Nodal Analysis); Quiz Part 2", summary: "Applying KCL at the ICF node with parallel Nernst batteries, channel conductances, and Na+/K+ pump current sources to solve for V_mem.", equations: ["G_Na(V_mem - V_N,Na) + G_K(V_mem - V_N,K) + G_Cl(V_mem - V_N,Cl) + I_pump,net = 0"], diagnostic: "Quiz Part 2: Given V_N,Na=77mV (G=0.4), V_N,K=-89mV (G=2.2), V_N,Cl=-71mV (G=0.4), I_Na=60, I_K=-40, compute V_ICF (-71.13 mV).", prerequisites: ["KA-CKT-02"] },
+      { id: "KA-CKT-04", code: "KA.C4", title: "Thevenin/Norton Equivalents & RC Delay", track: "KHAN_EE", tier: 4, xp: 25, kind: "Khan Prereq", source: "Circuits Backgrounder Slides 18-25", summary: "Collapsing a single-cell circuit into a Thevenin voltage (V_th) and resistance (R_th) to analyze multicellular gap-junction networks and RC charging delay (tau = R_th * C_mem).", equations: ["V_th = V_mem,open,  R_th = 1 / (G_Na + G_K + G_Cl)", "tau_mem = R_th * C_mem"], diagnostic: "How does replacing each cell's 5-branch circuit with its Thevenin equivalent simplify solving for V_mem across two cells coupled by R_GJ?", prerequisites: ["KA-CKT-03"] },
+      { id: "U1-BIO-04", code: "U1.4", title: "Na+/K+-ATPase Pumps, Detailed Balance vs. SS", track: "UNIT_1", tier: 4, xp: 35, kind: "Lecture", source: "Lecture 1a Slides 60-81; sim_toolbox.py", summary: "Active transport via Na+/K+-ATPase (3 Na+ out, 2 K+ in), distinguishing thermodynamic equilibrium (Cl-) from energy-consuming Steady State (SS, where j_channel + j_pump = 0 per ion).", equations: ["j_total,i = G_i * (V_mem - V_N,i) + j_pump,i = 0 (SS)", "j_pump,Na : j_pump,K = -3 : +2"], diagnostic: "Explain the difference between equilibrium (detailed balance) and steady state in a living cell.", prerequisites: ["U1-BIO-03", "KA-CKT-03"] },
+      { id: "U1-LAB-01", code: "U1.L2", title: "Sim Lab 2: Steady-State Bioelectricity in BITSEY", track: "UNIT_1", tier: 5, xp: 40, kind: "Sim Lab", source: "Sim Lab 2 (slab_simple_SS.pdf, main_sim_SS.py)", summary: "Simulating 4 cells over 100,000 s in BITSEY to prove that steady-state V_mem and concentrations are governed by channel conductances and robust to initial concentration perturbations.", equations: ["4 equations (Q=CV, J_Na=0, J_K=0, J_Cl=0) in 4 unknowns ([Na], [K], [Cl], V_mem)"], diagnostic: "Why does doubling D_Cl in cell #3 have zero effect on final SS V_mem, whereas doubling initial [Na]_ICF returns to the same state as cell #0?", prerequisites: ["U1-BIO-04", "FND-PROG-01"] },
+      { id: "U1-BIO-05", code: "U1.5", title: "Quasi-Steady State (QSS) & Capacitive Settling", track: "UNIT_1", tier: 5, xp: 40, kind: "Lecture + Lab", source: "Lec 1b; Sim Lab 3 (slab_simple_QSS.pdf); Oral Quiz #1", summary: "Two-timescale dynamics: why changing G_Na or G_K slews V_mem in milliseconds (QSS) where net charge flux sum(z_i * j_i) = 0 while bulk concentrations take hours to change (SS).", equations: ["dV_mem / dt = I_net / C_mem", "QSS: I_Na + I_K + I_Cl + I_pump,net = 0 (net charge flux = 0, individual j_i != 0)"], diagnostic: "Oral Quiz #1: Does KCL on the cell circuit compute QSS V_mem or SS V_mem? Why does a 100 mV shift require moving < 0.1% of internal ions?", prerequisites: ["U1-LAB-01", "KA-CKT-04"] },
+      { id: "U3-CRD-01", code: "U3.1", title: "Cardiac Conduction, Funny Channels & Gap Junctions", track: "UNIT_3", tier: 5, xp: 35, kind: "Lecture", source: "EE 123 Lecture 3 (3_GJs_cardiac.pptx Slides 1-22)", summary: "SA node -> atria -> slow AV node -> Bundle of His -> Purkinje fibers, HCN 'funny' channels, and Gap Junctions (GJs) synchronizing 500,000 SA node cells via mutual entrainment.", equations: ["I_GJ = G_GJ * (V_mem,1 - V_mem,2)", "f_GJ = GJ_Ith(diffusion) + GJ_Gth * Delta_V_GJ(drift)"], diagnostic: "How do gap junctions allow 500,000 noisy SA-node pacemaker cells to entrain to a single unified heartbeat frequency?", prerequisites: ["U1-BIO-05", "KA-CKT-04"] },
+      { id: "U4-MOR-01", code: "U4.1", title: "Morphogenesis as a Layered Bioelectric System", track: "UNIT_4", tier: 5, xp: 35, kind: "Lecture", source: "EE 123 Lecture 4b (4b_morphogenesis.pptx)", summary: "Closed-loop anatomical homeostasis: 'Picasso' tadpole remodeling, ectopic eye/brain induction via V_mem, planarian regeneration, trophic memory in deer antlers, and Layer 1 V_mem API -> Layer 2 GRN.", equations: ["Layer 1: Bioelectric Network -> Spatial V_mem(x) Pattern API", "Layer 2: V_mem(x) -> Transcription Factor / GRN -> Organ Specification"], diagnostic: "What experimental evidence in Xenopus tadpoles and planaria shows that a spatial V_mem pattern acts as a high-level API for organ building?", prerequisites: ["FND-BIO-01", "U1-BIO-05", "U3-CRD-01"] },
+      { id: "U2-NEU-01", code: "U2.1", title: "Hodgkin-Huxley Action Potentials & Gating ODEs", track: "UNIT_2", tier: 6, xp: 45, kind: "Sim Lab", source: "Lec 2a; Sim Lab 4 (slab_neurons.pdf, main_sim_neuron.py)", summary: "Voltage-gated Na+ and K+ channels: fast positive feedback via m^3 (tau_m small) launches the AP spike; slower negative feedback via h and n^4 (tau_h, tau_n) ends the spike and creates the refractory period.", equations: ["g_Na = g_Na_max * m^3 * h,   g_K = g_K_max * n^4", "dm/dt = (m_inf(V) - m)/tau_m,  tau_m << tau_h approx tau_n"], diagnostic: "Sim Lab 4: How do increasing tau_h/tau_n vs. tau_m affect AP peak voltage and width, and how do m^3*h and n^4 explain the refractory period?", prerequisites: ["U1-BIO-05"] },
+      { id: "U2-NEU-02", code: "U2.2", title: "Axonal Propagation, Myelin Capacitance & Synapses", track: "UNIT_2", tier: 6, xp: 35, kind: "Lecture", source: "EE 123 Lecture 2a Slides 15-31", summary: "Spatial AP propagation, refractory directionality, how myelin reduces capacitance (Q=CV) for saltatory conduction between Nodes of Ranvier, and chemical synapses (CNS/PNS, reflexes, CPGs).", equations: ["C_myelinated << C_bare  =>  v_prop up to 150 m/s"], diagnostic: "Why does wrapping an axon in myelin decrease capacitance, why does lower C speed up propagation, and why are bare Nodes of Ranvier needed?", prerequisites: ["U2-NEU-01"] },
+      { id: "U2-NEU-03", code: "U2.3", title: "Motor Units, sEMG, Nerve Conduction & DSP Filtering", track: "UNIT_2", tier: 6, xp: 40, kind: "Hardware Lab", source: "Lec 2b Slides 10-29; Real Lab 5 (lab_semg.pdf); EN01 Lec 4", summary: "Motor unit recruitment (size principle, rate coding, interlacing), CMAP, skin low-pass filtering, Nerve Conduction Studies (neuropathy vs. MS vs. sciatica), and sEMG moving-avg / RMS DSP.", equations: ["RMS_segment = sqrt( (1/N) * sum (x_k - x_baseline)^2 )"], diagnostic: "Lab 5: How does spatial interlacing of motor units allow a surface electrode to measure a smooth RMS force ramp?", prerequisites: ["U2-NEU-02", "FND-PROG-01"] },
+      { id: "U2-NEU-04", code: "U2.4", title: "Myoelectric Prosthetics, TMR & AMI Interfaces", track: "UNIT_2", tier: 6, xp: 30, kind: "Lecture", source: "EE 123 Lecture 2b Slides 30-44; Lab 5 Q3", summary: "Differential biceps/triceps sEMG prosthetic control, co-contraction mode switching, Targeted Muscle Reinnervation (TMR), and Agonist-Antagonist Myoneural Interfaces (AMI).", equations: ["u_prosthesis = K_p * (RMS_biceps - RMS_triceps)"], diagnostic: "For a trans-radial amputee, what are the pros and cons of biceps/triceps sEMG control, and why must TMR denervate part of the target muscle?", prerequisites: ["U2-NEU-03"] },
+      { id: "U2-NEU-05", code: "U2.5", title: "Gate-Control Theory of Pain, SCS & Electroceuticals", track: "UNIT_2", tier: 6, xp: 35, kind: "Lecture", source: "EE 123 Lecture 2b Slides 45-82; Oral Quiz #2", summary: "Melzack-Wall Gate-Control Theory, conventional (35-80 Hz) vs. 10 kHz paresthesia-free Spinal Cord Stimulation, PNS, vagus nerve electroceuticals (SetPoint, Saluda, Neuspera, Cala), and SparkSpine.", equations: ["Pain_out = max(0, w_noc * I_Adelta_C - w_inh * (I_Abeta - w_block * I_Adelta_C))"], diagnostic: "Oral Quiz #2: Explain the Gate-Control Theory circuit and discuss which observations of 10 kHz SCS challenge classical gate theory.", prerequisites: ["U2-NEU-03"] },
+      { id: "U3-CRD-02", code: "U3.2", title: "ECG Physics, Dipole Projections & 6/12-Lead Geometry", track: "UNIT_3", tier: 6, xp: 45, kind: "Hardware Lab", source: "Lec 3 Slides 23-42; Real Lab 6 (lab_ecg.pdf, 6lead_plot.py)", summary: "Cardiac current dipole vector dot-product projections onto limb leads (I, II, III) and augmented leads (aVL, aVR, aVF), P-Q-R-S-T waves, R-axis angle, Right-Leg Drive (RLD), and CardioMan resistor network.", equations: ["Lead I = LA - RA (0 deg), Lead II = LL - RA (+60 deg), Lead III = LL - LA (+120 deg)", "W = (LA + RA + LL)/3,  aVF = 1.5*(LL - W)"], diagnostic: "Lab 6: Why does clenching your left biceps introduce EMG noise only into Lead I, whereas clenching your right biceps corrupts both Lead I and Lead II?", prerequisites: ["U3-CRD-01", "U2-NEU-03", "FND-MATH-01"] },
+      { id: "U3-CRD-03", code: "U3.3", title: "Arrhythmias, Triple-Redundancy Fail-Safes & Pacemakers", track: "UNIT_3", tier: 6, xp: 40, kind: "Lecture", source: "EE 123 Lecture 3 Slides 43-82; Oral Quiz #3", summary: "AV blocks, reentrant Atrial Fibrillation (~300 bpm), ablation/electroporation, PVCs, biological overdrive suppression hierarchy (SA 60 > AV 40 > Purkinje 20 bpm), and electronic pacemakers.", equations: ["f_SA (~60 bpm) > f_AV (~40 bpm) > f_Purkinje (~20 bpm)"], diagnostic: "Oral Quiz #3: How does having progressively slower downstream oscillators guarantee that backup pacemakers stay silent normally but take over on failure?", prerequisites: ["U3-CRD-02"] },
+      { id: "U4-MOR-02", code: "U4.2", title: "Planarian Polarity Modeling: Electrodiffusion & Hill Feedback", track: "UNIT_4", tier: 6, xp: 45, kind: "Sim Lab", source: "EE 123 Lecture 4c: Worms (4c_worm.pptx)", summary: "Engineering a regenerating 5-cell planarian in BITSEY: negatively charged morphogen M electrodiffusion across GJs, Hill inverter positive feedback on G_K, morphogen gen/decay, and GJ regimes (archipelago, 1H1T, 2H, collapse).", equations: ["[M]_head / [M]_tail = exp(-z_M * Delta_V_mem / 26 mV)", "G_K(cell) = G_K,max / (1 + ([M]_cell / K_M)^N)"], diagnostic: "Why does positive feedback between [M] and G_K in every cell allow an excised trunk fragment to regenerate its head-tail V_mem gradient?", prerequisites: ["U4-MOR-01", "FND-PROG-01"] },
+      { id: "U4-CAN-01", code: "U4.3", title: "Bioelectric Oncology: Depolarization, GJ Isolation & Atavism", track: "UNIT_4", tier: 6, xp: 35, kind: "Lecture", source: "EE 123 Lecture 4c: Cancer (4c_cancer.pptx)", summary: "Bioelectric view of cancer: stem and tumor cells are depolarized while differentiated cells are hyperpolarized; closing gap junctions isolates tumor cells from morphogenetic normalization cues.", equations: ["V_mem,differentiated (-70 to -90 mV) << V_mem,stem/tumor (-10 to -30 mV)"], diagnostic: "How does the bioelectric model explain tumor induction without DNA mutations via V_mem depolarization and gap-junctional isolation?", prerequisites: ["U4-MOR-01"] }
+    ];
+
+    NODES.forEach(n => {
+      n.enables = NODES.filter(o => o.prerequisites.includes(n.id)).map(o => o.id);
+    });
+    const NODE_MAP = Object.fromEntries(NODES.map(n => [n.id, n]));
+
+    let mastered = new Set(JSON.parse(localStorage.getItem("ee123_mastered") || '["KA-PHYS-01","KA-PHYS-02","KA-PHYS-03","KA-CKT-01","FND-MATH-01","FND-BIO-01"]'));
+    let selectedId = "U1-BIO-05";
+    let activeTrack = "ALL";
+    let searchQuery = "";
+
+    function saveMastered() {
+      localStorage.setItem("ee123_mastered", JSON.stringify([...mastered]));
+    }
+
+    function getStatus(node) {
+      if (mastered.has(node.id)) return "mastered";
+      return node.prerequisites.every(p => mastered.has(p)) ? "ready" : "locked";
+    }
+
+    function getAncestors(id, set = new Set()) {
+      const n = NODE_MAP[id];
+      if (!n) return set;
+      for (const p of n.prerequisites) {
+        if (!set.has(p)) { set.add(p); getAncestors(p, set); }
+      }
+      return set;
+    }
+
+    function getDescendants(id, set = new Set()) {
+      const n = NODE_MAP[id];
+      if (!n) return set;
+      for (const c of n.enables) {
+        if (!set.has(c)) { set.add(c); getDescendants(c, set); }
+      }
+      return set;
+    }
+
+    function renderAll() {
+      const totalXP = NODES.reduce((a, b) => a + b.xp, 0);
+      const earnedXP = NODES.filter(n => mastered.has(n.id)).reduce((a, b) => a + b.xp, 0);
+      const readyNodes = NODES.filter(n => getStatus(n) === "ready");
+      const lockedNodes = NODES.filter(n => getStatus(n) === "locked");
+
+      document.getElementById("stat-xp").textContent = `${earnedXP} / ${totalXP} XP`;
+      document.getElementById("stat-ready").textContent = `${readyNodes.length} Modules`;
+      document.getElementById("tab-frontier").textContent = `Math Academy Frontier (${readyNodes.length} Ready)`;
+      document.getElementById("prog-left").textContent = `${Math.round((earnedXP / totalXP) * 100)}% Complete (${mastered.size}/${NODES.length} modules mastered)`;
+      document.getElementById("prog-right").textContent = `${earnedXP} / ${totalXP} XP across 7 tracks`;
+
+      // Progress bar
+      const progBar = document.getElementById("prog-bar");
+      progBar.innerHTML = "";
+      Object.entries(TRACKS).forEach(([tid, tmeta]) => {
+        const txp = NODES.filter(n => n.track === tid && mastered.has(n.id)).reduce((a, b) => a + b.xp, 0);
+        if (txp > 0) {
+          const div = document.createElement("div");
+          div.style.width = `${(txp / totalXP) * 100}%`;
+          div.style.background = tmeta.color;
+          progBar.appendChild(div);
+        }
+      });
+
+      // Legend
+      const leg = document.getElementById("legend-bar");
+      leg.innerHTML = "";
+      Object.entries(TRACKS).forEach(([tid, tmeta]) => {
+        const item = document.createElement("div");
+        item.className = `legend-item ${activeTrack === tid ? "active" : ""}`;
+        item.innerHTML = `<span class="swatch" style="background:${tmeta.color}"></span><span>${tmeta.name}</span>`;
+        item.onclick = () => { activeTrack = activeTrack === tid ? "ALL" : tid; renderAll(); };
+        leg.appendChild(item);
+      });
+
+      renderDAG();
+      renderInspector();
+      renderFrontier(readyNodes, lockedNodes);
+      renderTable();
+    }
+
+    function renderDAG() {
+      const svg = document.getElementById("dag-svg");
+      svg.innerHTML = "";
+
+      // Group by tier (0..6), with tier 6 split into 2 visual rows (6a, 6b) for clean layout
+      const rows = [
+        NODES.filter(n => n.tier === 0),
+        NODES.filter(n => n.tier === 1),
+        NODES.filter(n => n.tier === 2),
+        NODES.filter(n => n.tier === 3),
+        NODES.filter(n => n.tier === 4),
+        NODES.filter(n => n.tier === 5),
+        NODES.filter(n => ["U2-NEU-01", "U2-NEU-02", "U3-CRD-02", "U4-MOR-02", "U4-CAN-01"].includes(n.id)),
+        NODES.filter(n => ["U2-NEU-03", "U2-NEU-04", "U2-NEU-05", "U3-CRD-03"].includes(n.id))
+      ];
+
+      const W = 980, nodeW = 166, nodeH = 54;
+      const pos = {};
+      rows.forEach((rNodes, rIdx) => {
+        const y = 26 + rIdx * 102;
+        const totalRowW = rNodes.length * nodeW + (rNodes.length - 1) * 22;
+        const startX = (W - totalRowW) / 2;
+        rNodes.forEach((n, cIdx) => {
+          pos[n.id] = { x: startX + cIdx * (nodeW + 22), y };
+        });
+      });
+
+      const anc = getAncestors(selectedId);
+      const desc = getDescendants(selectedId);
+
+      // Edges
+      NODES.forEach(n => {
+        n.prerequisites.forEach(pId => {
+          const p1 = pos[pId], p2 = pos[n.id];
+          if (!p1 || !p2) return;
+          const x1 = p1.x + nodeW / 2, y1 = p1.y + nodeH;
+          const x2 = p2.x + nodeW / 2, y2 = p2.y;
+          const isHi = (pId === selectedId && desc.has(n.id)) || (n.id === selectedId && anc.has(pId)) || (anc.has(pId) && anc.has(n.id)) || (desc.has(pId) && desc.has(n.id));
+          const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+          const midY = (y1 + y2) / 2;
+          path.setAttribute("d", `M ${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`);
+          path.setAttribute("fill", "none");
+          path.setAttribute("stroke", isHi ? "#3b82f6" : "#334155");
+          path.setAttribute("stroke-width", isHi ? "2.4" : "1.2");
+          path.setAttribute("stroke-opacity", isHi ? "0.95" : "0.55");
+          svg.appendChild(path);
+        });
+      });
+
+      // Nodes
+      NODES.forEach(n => {
+        const p = pos[n.id];
+        if (!p) return;
+        const status = getStatus(n);
+        const tColor = TRACKS[n.track].color;
+        const isSel = n.id === selectedId;
+        const isRel = isSel || anc.has(n.id) || desc.has(n.id);
+        const filteredOut = (activeTrack !== "ALL" && n.track !== activeTrack) ||
+          (searchQuery && !(n.title.toLowerCase().includes(searchQuery) || n.code.toLowerCase().includes(searchQuery) || n.summary.toLowerCase().includes(searchQuery)));
+
+        const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+        g.setAttribute("transform", `translate(${p.x}, ${p.y})`);
+        g.style.cursor = "pointer";
+        g.style.opacity = filteredOut ? "0.2" : (isRel ? "1" : "0.8");
+        g.onclick = () => { selectedId = n.id; renderAll(); };
+
+        const statusColor = status === "mastered" ? "#10b981" : status === "ready" ? "#3b82f6" : "#64748b";
+        const statusText = status === "mastered" ? "DONE" : status === "ready" ? "READY" : "LOCKED";
+
+        g.innerHTML = `
+          <rect width="${nodeW}" height="${nodeH}" rx="6" fill="${isSel ? '#1e293b' : '#161922'}" stroke="${isSel ? '#3b82f6' : (status === 'ready' ? tColor : '#2a3042')}" stroke-width="${isSel ? '2.2' : '1.2'}"/>
+          <rect x="0" y="0" width="6" height="${nodeH}" rx="3" fill="${tColor}"/>
+          <text x="12" y="16" fill="${tColor}" font-size="10" font-weight="700">${n.code} · ${n.xp} XP</text>
+          <text x="${nodeW - 8}" y="16" text-anchor="end" fill="${statusColor}" font-size="9" font-weight="700">${statusText}</text>
+          <text x="12" y="33" fill="#f0f2f8" font-size="10.5" font-weight="600">${n.title.length > 22 ? n.title.slice(0, 21) + '…' : n.title}</text>
+          <text x="12" y="46" fill="#94a3b8" font-size="9.5">${n.kind}</text>
+        `;
+        svg.appendChild(g);
+      });
+    }
+
+    function renderInspector() {
+      const n = NODE_MAP[selectedId];
+      document.getElementById("insp-badge").textContent = `${n.code} · ${n.xp} XP · Tier ${n.tier}`;
+      const body = document.getElementById("inspector-body");
+      const isMast = mastered.has(n.id);
+      body.innerHTML = `
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+          <span class="swatch" style="background:${TRACKS[n.track].color}"></span>
+          <h2 style="font-size:17px;">${n.title}</h2>
+        </div>
+        <div style="font-size:12px; color:var(--text-secondary); margin-bottom:12px;">
+          <div>Track: <strong>${TRACKS[n.track].name}</strong> (${n.kind})</div>
+          <div>Source: ${n.source}</div>
+        </div>
+        <div style="margin-bottom:14px;">
+          <button id="btn-toggle-master" style="background:${isMast ? 'var(--green)' : 'var(--surface-elevated)'}; border-color:${isMast ? 'var(--green)' : 'var(--accent)'}; color:#fff; font-weight:600;">
+            ${isMast ? '✓ Mastered (Click to Unmark)' : 'Mark Knowledge Point as Mastered (+' + n.xp + ' XP)'}
+          </button>
+        </div>
+        <h3 style="font-size:13px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.04em;">Core Engineering &amp; Biological Concept</h3>
+        <p style="font-size:13.5px; margin:6px 0 14px;">${n.summary}</p>
+        <h3 style="font-size:13px; color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.04em;">Key Equations &amp; Models</h3>
+        <div>${n.equations.map(e => `<div class="eq-box">${e}</div>`).join("")}</div>
+        <div class="callout">
+          <div class="callout-title">Oral Quiz / Lab Diagnostic Question</div>
+          <div>${n.diagnostic}</div>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; padding-top:12px; border-top:1px solid var(--border); font-size:12px;">
+          <div>
+            <strong style="color:var(--text-secondary)">Prerequisites (${n.prerequisites.length})</strong>
+            <div style="margin-top:6px; display:flex; flex-direction:column; gap:4px;">
+              ${n.prerequisites.length === 0 ? '<span style="color:var(--text-muted)">Root Foundation</span>' : n.prerequisites.map(p => `<a href="#" data-jump="${p}">${NODE_MAP[p].code}: ${NODE_MAP[p].title}</a>`).join("")}
+            </div>
+          </div>
+          <div>
+            <strong style="color:var(--text-secondary)">Directly Unlocks (${n.enables.length})</strong>
+            <div style="margin-top:6px; display:flex; flex-direction:column; gap:4px;">
+              ${n.enables.length === 0 ? '<span style="color:var(--text-muted)">Capstone Module</span>' : n.enables.map(c => `<a href="#" data-jump="${c}">${NODE_MAP[c].code}: ${NODE_MAP[c].title}</a>`).join("")}
+            </div>
+          </div>
+        </div>
+      `;
+      document.getElementById("btn-toggle-master").onclick = () => {
+        if (mastered.has(n.id)) mastered.delete(n.id); else mastered.add(n.id);
+        saveMastered(); renderAll();
+      };
+      body.querySelectorAll("[data-jump]").forEach(a => {
+        a.onclick = (e) => { e.preventDefault(); selectedId = a.dataset.jump; renderAll(); };
+      });
+    }
+
+    function renderFrontier(readyNodes, lockedNodes) {
+      document.getElementById("cnt-ready").textContent = readyNodes.length;
+      document.getElementById("cnt-locked").textContent = lockedNodes.length;
+      document.getElementById("cnt-mastered").textContent = mastered.size;
+
+      const rEl = document.getElementById("list-ready");
+      rEl.innerHTML = readyNodes.map(n => `
+        <div class="node-item">
+          <div style="display:flex; justify-content:space-between; font-weight:600; font-size:13px; margin-bottom:4px;">
+            <span><span class="swatch" style="background:${TRACKS[n.track].color}"></span> ${n.code} · ${n.title}</span>
+            <span class="badge">${n.xp} XP</span>
+          </div>
+          <p style="font-size:12px; color:var(--text-secondary); margin-bottom:8px;">${n.summary}</p>
+          <button data-complete="${n.id}" style="background:var(--accent); color:#fff; border:none; font-size:12px;">Complete &amp; Master (+${n.xp} XP)</button>
+        </div>
+      `).join("");
+      rEl.querySelectorAll("[data-complete]").forEach(b => {
+        b.onclick = () => { mastered.add(b.dataset.complete); saveMastered(); renderAll(); };
+      });
+
+      document.getElementById("list-locked").innerHTML = lockedNodes.map(n => {
+        const miss = n.prerequisites.filter(p => !mastered.has(p)).map(p => NODE_MAP[p].code).join(", ");
+        return `
+          <div class="node-item" style="opacity:0.75">
+            <div style="font-weight:600; font-size:13px;">${n.code} · ${n.title}</div>
+            <div style="font-size:11.5px; color:var(--text-muted); margin-top:4px;">Missing Prerequisites: ${miss}</div>
+          </div>
+        `;
+      }).join("");
+
+      const mEl = document.getElementById("list-mastered");
+      mEl.innerHTML = NODES.filter(n => mastered.has(n.id)).map(n => `
+        <div class="node-item" style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:12.5px;"><strong>${n.code}</strong> · ${n.title}</span>
+          <button data-unmark="${n.id}" style="font-size:11px; padding:3px 8px;">Unmark</button>
+        </div>
+      `).join("");
+      mEl.querySelectorAll("[data-unmark]").forEach(b => {
+        b.onclick = () => { mastered.delete(b.dataset.unmark); saveMastered(); renderAll(); };
+      });
+    }
+
+    function renderTable() {
+      const tb = document.getElementById("table-body");
+      tb.innerHTML = NODES.map(n => `
+        <tr>
+          <td><code>${n.code}</code></td>
+          <td><strong>${n.title}</strong></td>
+          <td>${TRACKS[n.track].name}</td>
+          <td>${n.tier}</td>
+          <td>${n.xp}</td>
+          <td>${n.prerequisites.map(p => NODE_MAP[p].code).join(", ") || "—"}</td>
+          <td>${n.enables.map(c => NODE_MAP[c].code).join(", ") || "Capstone"}</td>
+          <td style="color:var(--text-secondary)">${n.source}</td>
+        </tr>
+      `).join("");
+    }
+
+    document.querySelectorAll("[data-view]").forEach(btn => {
+      btn.onclick = () => {
+        document.querySelectorAll("[data-view]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const v = btn.dataset.view;
+        ["dag", "frontier", "khan", "table"].forEach(k => {
+          document.getElementById(`view-${k}`).style.display = (k === v) ? (k === "dag" ? "grid" : "block") : "none";
+        });
+      };
+    });
+
+    document.getElementById("search-input").oninput = (e) => {
+      searchQuery = e.target.value.trim().toLowerCase();
+      renderDAG();
+    };
+
+    document.getElementById("btn-master-prereqs").onclick = () => {
+      ["KA-PHYS-01","KA-PHYS-02","KA-PHYS-03","KA-CKT-01","KA-CKT-02","KA-CKT-03","KA-CKT-04","FND-MATH-01","FND-PROG-01","FND-BIO-01"].forEach(id => mastered.add(id));
+      saveMastered(); renderAll();
+    };
+
+    document.getElementById("btn-reset").onclick = () => {
+      mastered.clear(); saveMastered(); renderAll();
+    };
+
+    renderAll();
+  </script>
+</body>
+</html>
