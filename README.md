@@ -9,9 +9,10 @@ A complete module extraction, **Math Academy-style Prerequisite Directed Acyclic
 ```text
 bioelectricity-knowledge-graph/
 ├── knowledge-graph/
-│   └── knowledge_graph.json          # Full 27-node, 36-edge Math Academy-style DAG (JSON)
+│   └── knowledge_graph.json          # 27-node Math Academy-style DAG, with a diagnostic on every node
 ├── docs/
-│   └── index.html                    # Standalone interactive DAG & Learning Frontier web app
+│   └── index.html                    # Standalone DAG explorer; mastery requires the diagnostic
+├── verify_mastery.py                 # DAG, numerical, and live BITSEY checks for all 27 nodes
 ├── bitsey/                           # BITSEY Python bioelectric network simulator
 │   ├── sim.py                        # Core vectorized cell, ion channel, pump & GJ engine
 │   ├── sim_toolbox.py                # Goldman-Hodgkin-Katz (GHK) & Na+/K+-ATPase pump models
@@ -40,9 +41,19 @@ open docs/index.html
 
 Features included in `docs/index.html`:
 - **Interactive SVG Prerequisite DAG (Tiers 0–6)**: Click any node to highlight its upstream prerequisite chain and downstream unlocked modules.
-- **Math Academy Learning Frontier**: Toggle mastery on any unlocked knowledge point to earn XP and watch downstream modules in Units 1–4 automatically unlock.
+- **Math Academy Learning Frontier**: A module unlocks only after every prerequisite is verified. Answering its diagnostic correctly records the XP. Revoking a module also clears every module that depends on it.
 - **Khan Academy Bridge & Placement Quiz**: Full mapping of Prof. Grodstein's assigned Khan Academy `AP Physics 2` and `Electrical Engineering` units alongside the solutions to `backgrounders_quiz.pdf`.
-- **Module Inspector**: View equations, engineering abstractions, `BITSEY` code connections, and oral quiz / lab diagnostic prompts for every node.
+- **Module Inspector**: Four-choice diagnostic, equations, and the last automated check result for every node.
+
+Verified progress is stored in the browser under `ee123_verified`.
+
+## Automated verification
+
+`verify_mastery.py` checks the prerequisite DAG, the numerical and circuit diagnostics, and live BITSEY runs (steady state, quasi-steady state, Hodgkin–Huxley, and a 5-cell planarian gradient). It writes each result back onto the matching node in `knowledge_graph.json`.
+
+```bash
+python3 verify_mastery.py
+```
 
 ---
 
