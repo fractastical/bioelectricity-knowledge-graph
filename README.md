@@ -33,7 +33,7 @@ bioelectricity-knowledge-graph/
 
 ## Running the Interactive Knowledge Graph Explorer
 
-Open `docs/index.html` directly in any browser (or serve via GitHub Pages):
+The explorer is published at <https://fractastical.github.io/bioelectricity-knowledge-graph/>.
 
 ```bash
 open docs/index.html
