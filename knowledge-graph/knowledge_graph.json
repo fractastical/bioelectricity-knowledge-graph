@@ -12,7 +12,311 @@
       "oral_quizzes": 0.25,
       "final_project": 0.15
     },
-    "pedagogical_model": "Math Academy-style Prerequisite Directed Acyclic Graph (DAG) with atomic knowledge points, explicit prerequisite edges, XP weights, quantitative diagnostics, BITSEY Python simulations, and hardware electrophysiology labs."
+    "pedagogical_model": "Math Academy-style Prerequisite Directed Acyclic Graph (DAG) with atomic knowledge points, explicit prerequisite edges, XP weights, quantitative diagnostics, BITSEY Python simulations, and hardware electrophysiology labs.",
+    "slide_decks": [
+      {
+        "id": "ee123-0-day1",
+        "course": "EE 123",
+        "unit": "Unit 0",
+        "title": "Day 1: Course Intro & Bioelectricity Overview",
+        "filename": "0_day1.pptx",
+        "slide_count": 25,
+        "local_path": "course-materials/ee123-lectures/0_day1.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/0_day1.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/0_day1.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F0_day1.pptx",
+        "nodes": [
+          "KA-PHYS-01"
+        ]
+      },
+      {
+        "id": "ee123-1a-ss",
+        "course": "EE 123",
+        "unit": "Unit 1a",
+        "title": "How Cells Make Voltages: Steady-State Bioelectricity",
+        "filename": "1a_bioelec_SS.pptx",
+        "slide_count": 81,
+        "local_path": "course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+        "nodes": [
+          "KA-PHYS-01",
+          "KA-PHYS-02",
+          "U1-BIO-01",
+          "U1-BIO-02",
+          "U1-BIO-03",
+          "U1-BIO-04",
+          "U1-LAB-01"
+        ]
+      },
+      {
+        "id": "ee123-1b-qss",
+        "course": "EE 123",
+        "unit": "Unit 1b",
+        "title": "How Neurons Work So Fast: Quasi-Steady-State Bioelectricity",
+        "filename": "1b_bioelec_QSS.pptx",
+        "slide_count": 36,
+        "local_path": "course-materials/ee123-lectures/1b_bioelec_QSS.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1b_bioelec_QSS.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1b_bioelec_QSS.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1b_bioelec_QSS.pptx",
+        "nodes": [
+          "KA-CKT-03",
+          "U1-BIO-05"
+        ]
+      },
+      {
+        "id": "ee123-bg-circuits",
+        "course": "EE 123",
+        "unit": "Backgrounder",
+        "title": "Circuits Backgrounder (Ohm, KVL/KCL, Nodal Analysis, Th\u00e9venin & RC)",
+        "filename": "backgrounders_circuits.pptx",
+        "slide_count": 25,
+        "local_path": "course-materials/ee123-lectures/backgrounders_circuits.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/backgrounders_circuits.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+        "nodes": [
+          "KA-CKT-01",
+          "KA-CKT-02",
+          "KA-CKT-03",
+          "KA-CKT-04"
+        ]
+      },
+      {
+        "id": "ee123-sam-max",
+        "course": "EE 123",
+        "unit": "Fluency Drills",
+        "title": "Sam & Max Circuit Problems (Dividers, KCL & Capacitors)",
+        "filename": "sam_and_max_ckt_problems.pptx",
+        "slide_count": 19,
+        "local_path": "course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/misc/sam_and_max_ckt_problems.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Fmisc%2Fsam_and_max_ckt_problems.pptx",
+        "nodes": [
+          "KA-PHYS-03",
+          "KA-CKT-02"
+        ]
+      },
+      {
+        "id": "ee123-2a-neurons",
+        "course": "EE 123",
+        "unit": "Unit 2a",
+        "title": "Neurons, Hodgkin-Huxley Action Potentials, Myelin & Synapses",
+        "filename": "2a_neurons.pptx",
+        "slide_count": 31,
+        "local_path": "course-materials/ee123-lectures/2a_neurons.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2a_neurons.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/2a_neurons.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2a_neurons.pptx",
+        "nodes": [
+          "U1-BIO-01",
+          "U2-NEU-01",
+          "U2-NEU-02"
+        ]
+      },
+      {
+        "id": "ee123-2b-emg-scs",
+        "course": "EE 123",
+        "unit": "Unit 2b",
+        "title": "Nervous System, sEMG, Prosthetics, Pain Gate-Control & Electroceuticals",
+        "filename": "2b_EMG_SCS_electroceuticals.pptx",
+        "slide_count": 82,
+        "local_path": "course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2b_EMG_SCS_electroceuticals.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2b_EMG_SCS_electroceuticals.pptx",
+        "nodes": [
+          "U2-NEU-03",
+          "U2-NEU-04",
+          "U2-NEU-05"
+        ]
+      },
+      {
+        "id": "ee123-3-cardiac",
+        "course": "EE 123",
+        "unit": "Unit 3",
+        "title": "Gap Junctions & Cardiac Bioelectricity: Engineering a Fail-Safe Heart",
+        "filename": "3_GJs_cardiac.pptx",
+        "slide_count": 82,
+        "local_path": "course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+        "nodes": [
+          "FND-MATH-01",
+          "U3-CRD-01",
+          "U3-CRD-02",
+          "U3-CRD-03"
+        ]
+      },
+      {
+        "id": "ee123-4a-bio",
+        "course": "EE 123",
+        "unit": "Unit 4a",
+        "title": "Biology Backgrounder: Central Dogma, Promoters & Transcription Factors",
+        "filename": "4a_bio_backgrounder.pptx",
+        "slide_count": 25,
+        "local_path": "course-materials/ee123-lectures/4a_bio_backgrounder.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4a_bio_backgrounder.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/4a_bio_backgrounder.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4a_bio_backgrounder.pptx",
+        "nodes": [
+          "FND-BIO-01"
+        ]
+      },
+      {
+        "id": "ee123-4b-morpho",
+        "course": "EE 123",
+        "unit": "Unit 4b",
+        "title": "Weird Nature & Morphogenesis: How Your Body Got Its Shape",
+        "filename": "4b_morphogenesis.pptx",
+        "slide_count": 53,
+        "local_path": "course-materials/ee123-lectures/4b_morphogenesis.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4b_morphogenesis.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/4b_morphogenesis.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4b_morphogenesis.pptx",
+        "nodes": [
+          "U4-MOR-01"
+        ]
+      },
+      {
+        "id": "ee123-4c-worm",
+        "course": "EE 123",
+        "unit": "Unit 4c (Worms)",
+        "title": "Planarian Worm Regeneration: Electrodiffusion & Hill Feedback in BITSEY",
+        "filename": "4c_worm.pptx",
+        "slide_count": 55,
+        "local_path": "course-materials/ee123-lectures/4c_worm.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4c_worm.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/4c_worm.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4c_worm.pptx",
+        "nodes": [
+          "U4-MOR-02"
+        ]
+      },
+      {
+        "id": "ee123-4c-cancer",
+        "course": "EE 123",
+        "unit": "Unit 4c (Cancer)",
+        "title": "Bioelectric Oncology: Depolarization, GJ Isolation & Atavism",
+        "filename": "4c_cancer.pptx",
+        "slide_count": 18,
+        "local_path": "course-materials/ee123-lectures/4c_cancer.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4c_cancer.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/4c_cancer.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4c_cancer.pptx",
+        "nodes": [
+          "U4-CAN-01"
+        ]
+      },
+      {
+        "id": "en01-1-elec101",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 1",
+        "title": "Electricity 101: Charge, Voltage, Current & Resistors",
+        "filename": "1_electricity_101.pptx",
+        "local_path": "course-materials/en01-lectures/1_electricity_101.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/1_electricity_101.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/1_electricity_101.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F1_electricity_101.pptx",
+        "nodes": [
+          "KA-PHYS-01",
+          "KA-PHYS-02",
+          "KA-CKT-01"
+        ]
+      },
+      {
+        "id": "en01-2-neurons",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 2",
+        "title": "Neurons, Action Potentials & Bioelectric Signaling",
+        "filename": "2_neurons_etc.pptx",
+        "local_path": "course-materials/en01-lectures/2_neurons_etc.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/2_neurons_etc.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/2_neurons_etc.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F2_neurons_etc.pptx",
+        "nodes": [
+          "U2-NEU-01",
+          "U2-NEU-02"
+        ]
+      },
+      {
+        "id": "en01-3-cardiac",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 3",
+        "title": "Cardiac Bioelectricity & ECG",
+        "filename": "3_cardiac.pptx",
+        "local_path": "course-materials/en01-lectures/3_cardiac.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/3_cardiac.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/3_cardiac.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F3_cardiac.pptx",
+        "nodes": [
+          "U3-CRD-01",
+          "U3-CRD-02",
+          "U3-CRD-03"
+        ]
+      },
+      {
+        "id": "en01-4-freq",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 4",
+        "title": "Frequency Domain & Spectral Signal Analysis",
+        "filename": "4_frequency_domain.pptx",
+        "local_path": "course-materials/en01-lectures/4_frequency_domain.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/4_frequency_domain.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/4_frequency_domain.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F4_frequency_domain.pptx",
+        "nodes": [
+          "U2-NEU-03"
+        ]
+      },
+      {
+        "id": "en01-5-worms",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 5",
+        "title": "Planarian Worms & Bioelectric Regeneration",
+        "filename": "5_worms.pptx",
+        "local_path": "course-materials/en01-lectures/5_worms.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/5_worms.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/5_worms.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F5_worms.pptx",
+        "nodes": [
+          "U4-MOR-01",
+          "U4-MOR-02"
+        ]
+      },
+      {
+        "id": "en01-lab3-rt",
+        "course": "EN 01",
+        "unit": "EN 01 Lab 3",
+        "title": "Real-Time Coding in Python",
+        "filename": "lab3_real_time_coding.pptx",
+        "local_path": "course-materials/en01-lectures/lab3_real_time_coding.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/labs/pptx/lab3_real_time_coding.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/lab3_real_time_coding.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flabs%2Fpptx%2Flab3_real_time_coding.pptx",
+        "nodes": [
+          "FND-PROG-01"
+        ]
+      },
+      {
+        "id": "en01-lab4-mavg",
+        "course": "EN 01",
+        "unit": "EN 01 Lab 4",
+        "title": "Moving-Average & Segment-RMS Filtering",
+        "filename": "lab4_moving_avg.pptx",
+        "local_path": "course-materials/en01-lectures/lab4_moving_avg.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/labs/pptx/lab4_moving_avg.pptx",
+        "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/lab4_moving_avg.pptx",
+        "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flabs%2Fpptx%2Flab4_moving_avg.pptx",
+        "nodes": [
+          "U2-NEU-03"
+        ]
+      }
+    ]
   },
   "tracks": [
     {
@@ -88,7 +392,34 @@
         "explanation": "Bulk intracellular and extracellular fluids are macroscopically charge neutral: (+1)(10) + (+1)(125) + (-1)(55) + (-1)(80) = 0 mol/m^3. Even a tiny deviation (< 0.03 mol/m^3) produces tens of millivolts across the membrane.",
         "automated_check": "check_ka_phys_01_electroneutrality",
         "last_verified_output": "ICF net charge = 0.0 mol/m^3, ECF net charge = 0.0 mol/m^3 (bulk neutral)"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 1a Slides 7\u201316 (1a_bioelec_SS.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "slides": "7-16"
+        },
+        {
+          "label": "Day 1 Intro Slides (0_day1.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/0_day1.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/0_day1.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/0_day1.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F0_day1.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F0_day1.pptx",
+          "slides": "1-25"
+        },
+        {
+          "label": "Khan Academy: AP Physics 2 (Charge & Field)",
+          "kind": "khan",
+          "url": "https://www.khanacademy.org/science/ap-physics-2"
+        }
+      ]
     },
     {
       "id": "KA-PHYS-02",
@@ -121,7 +452,34 @@
         "explanation": "|E| = 0.075 V / 7.5e-9 m = 1.0e7 V/m (10 million Volts per meter!). Because the lipid bilayer is only 7.5 nm thick, a 75 mV biological voltage creates an enormous electric field.",
         "automated_check": "check_ka_phys_02_electric_field",
         "last_verified_output": "|E| = 1.00e+07 V/m across 7.5 nm bilayer"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 1a Slides 15\u201318 (1a_bioelec_SS.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "slides": "15-18"
+        },
+        {
+          "label": "EN 01 Lec 1 Slides 4\u201311 (1_electricity_101.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/en01-lectures/1_electricity_101.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/1_electricity_101.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/1_electricity_101.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F1_electricity_101.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F1_electricity_101.pptx",
+          "slides": "4-11"
+        },
+        {
+          "label": "Khan Academy: AP Physics 2 (Electric Potential)",
+          "kind": "khan",
+          "url": "https://www.khanacademy.org/science/ap-physics-2"
+        }
+      ]
     },
     {
       "id": "KA-PHYS-03",
@@ -154,7 +512,32 @@
         "explanation": "Using Q = C * V: Q = (50e-9 F) * (0.100 V) = 5.0e-9 C = 5 nC.",
         "automated_check": "check_ka_phys_03_capacitance",
         "last_verified_output": "Q = 5.00 nC on 50 nF capacitor at 100 mV"
-      }
+      },
+      "materials": [
+        {
+          "label": "Sam & Max Circuit Slides 14\u201319 (sam_and_max_ckt_problems.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/misc/sam_and_max_ckt_problems.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Fmisc%2Fsam_and_max_ckt_problems.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Fmisc%2Fsam_and_max_ckt_problems.pptx",
+          "slides": "14-19"
+        },
+        {
+          "label": "Backgrounders Placement Quiz Q1b (backgrounders_quiz.pdf)",
+          "kind": "quiz",
+          "local_path": "course-materials/syllabi-and-quizzes/backgrounders_quiz.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/misc/backgrounders_quiz.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/syllabi-and-quizzes/backgrounders_quiz.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/misc/backgrounders_quiz.pdf"
+        },
+        {
+          "label": "Khan Academy: AP Physics 2 & EE (Capacitors)",
+          "kind": "khan",
+          "url": "https://www.khanacademy.org/science/electrical-engineering"
+        }
+      ]
     },
     {
       "id": "KA-CKT-01",
@@ -187,7 +570,32 @@
         "explanation": "By Ohm's Law, I = V / R = 0.100 V / 20 Ohm = 0.005 A = 5 mA. Conductance is G = 1 / R = 1 / 20 = 0.05 S.",
         "automated_check": "check_ka_ckt_01_ohms_law",
         "last_verified_output": "I = 5.00 mA, G = 0.050 S"
-      }
+      },
+      "materials": [
+        {
+          "label": "Circuits Backgrounder Slides 2\u20133, 7\u20138, 12 (backgrounders_circuits.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/backgrounders_circuits.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/backgrounders_circuits.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+          "slides": "2-12"
+        },
+        {
+          "label": "Backgrounders Placement Quiz Q1a (backgrounders_quiz.pdf)",
+          "kind": "quiz",
+          "local_path": "course-materials/syllabi-and-quizzes/backgrounders_quiz.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/misc/backgrounders_quiz.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/syllabi-and-quizzes/backgrounders_quiz.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/misc/backgrounders_quiz.pdf"
+        },
+        {
+          "label": "Khan Academy: EE Circuit Analysis",
+          "kind": "khan",
+          "url": "https://www.khanacademy.org/science/electrical-engineering"
+        }
+      ]
     },
     {
       "id": "KA-CKT-02",
@@ -221,7 +629,34 @@
         "explanation": "KCL at V_3: (V_3 - 80)/40 + (V_3 - (-80))/10 = 0 => (V_3 - 80) + 4(V_3 + 80) = 0 => 5*V_3 = -240 => V_3 = -48 mV.",
         "automated_check": "check_ka_ckt_02_voltage_divider",
         "last_verified_output": "Divider node V_3 = -48.00 mV"
-      }
+      },
+      "materials": [
+        {
+          "label": "Circuits Backgrounder Slides 4\u201311 (backgrounders_circuits.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/backgrounders_circuits.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/backgrounders_circuits.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+          "slides": "4-11"
+        },
+        {
+          "label": "Sam & Max Circuit Slides 4\u201313 (sam_and_max_ckt_problems.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/misc/sam_and_max_ckt_problems.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Fmisc%2Fsam_and_max_ckt_problems.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Fmisc%2Fsam_and_max_ckt_problems.pptx",
+          "slides": "4-13"
+        },
+        {
+          "label": "Khan Academy: Kirchhoff's Laws & Dividers",
+          "kind": "khan",
+          "url": "https://www.khanacademy.org/science/electrical-engineering"
+        }
+      ]
     },
     {
       "id": "KA-CKT-03",
@@ -253,7 +688,37 @@
         "explanation": "KCL at ICF (Lecture 1b Slide 36): 0.4(V - 77) + 2.2(V + 89) + 0.4(V + 71) + 60 - 40 = 0 => 3.0*V + 213.4 = 0 => V = -71.13 mV. When G_K becomes 100x larger, the K+ branch dominates and pins V_ICF to V_N,K = -89 mV.",
         "automated_check": "check_ka_ckt_03_nodal_cell",
         "last_verified_output": "V_ICF = -71.13 mV; at 100x G_K -> -88.76 mV (approaches V_N,K = -89 mV)"
-      }
+      },
+      "materials": [
+        {
+          "label": "Circuits Backgrounder Slides 14\u201317 (backgrounders_circuits.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/backgrounders_circuits.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/backgrounders_circuits.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+          "slides": "14-17"
+        },
+        {
+          "label": "Lecture 1b Slide 36 (1b_bioelec_QSS.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/1b_bioelec_QSS.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1b_bioelec_QSS.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1b_bioelec_QSS.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1b_bioelec_QSS.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1b_bioelec_QSS.pptx",
+          "slides": "36"
+        },
+        {
+          "label": "Backgrounders Quiz Part 2 (backgrounders_quiz.pdf)",
+          "kind": "quiz",
+          "local_path": "course-materials/syllabi-and-quizzes/backgrounders_quiz.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/misc/backgrounders_quiz.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/syllabi-and-quizzes/backgrounders_quiz.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/misc/backgrounders_quiz.pdf"
+        }
+      ]
     },
     {
       "id": "KA-CKT-04",
@@ -286,7 +751,24 @@
         "explanation": "Parallel conductances add directly: G_th = G_Na + G_K + G_Cl = 0.4 + 2.2 + 0.4 = 3.0 S. The RC time constant governing how fast V_mem slews to QSS is tau = C_mem / G_th.",
         "automated_check": "check_ka_ckt_04_thevenin_rc",
         "last_verified_output": "G_th = 3.00 S, R_th = 0.3333 Ohm"
-      }
+      },
+      "materials": [
+        {
+          "label": "Circuits Backgrounder Slides 18\u201325 (backgrounders_circuits.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/backgrounders_circuits.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/backgrounders_circuits.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+          "slides": "18-25"
+        },
+        {
+          "label": "Khan Academy: Th\u00e9venin & RC Transients",
+          "kind": "khan",
+          "url": "https://www.khanacademy.org/science/electrical-engineering"
+        }
+      ]
     },
     {
       "id": "FND-MATH-01",
@@ -317,7 +799,27 @@
         "explanation": "After one time constant t = tau_m, an exponential relaxation covers (1 - e^-1) approx 63.21% of the step: 0.4 + (0.9 - 0.4)*(1 - 0.3679) = 0.716.",
         "automated_check": "check_fnd_math_01_ode",
         "last_verified_output": "m(t=tau) = 0.7161"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 3 Slide 25: Vector Math Review (3_GJs_cardiac.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+          "slides": "25"
+        },
+        {
+          "label": "Sim Lab 4 Slide 3: HH Gating ODEs (slab_neurons.pdf)",
+          "kind": "lab",
+          "local_path": "course-materials/ee123-labs/slab_neurons.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_neurons.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/slab_neurons.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_neurons.pdf"
+        }
+      ]
     },
     {
       "id": "FND-PROG-01",
@@ -349,7 +851,34 @@
         "explanation": "From sim.py line 375: scale = F * (V_cell / A_cell) / c_m = F * (r / 3) / c_m = 96485 * (5e-6 / 3) / 0.05 = 3.216 Volts = 3216 mV per (mol/m^3)!",
         "automated_check": "check_fnd_prog_01_bitsey_vm_scale",
         "last_verified_output": "BITSEY dV_mem / d[rho] = 3216.17 mV per (mol/m^3)"
-      }
+      },
+      "materials": [
+        {
+          "label": "EN 01 Lab 3 Slides: Real-Time Python (lab3_real_time_coding.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/en01-lectures/lab3_real_time_coding.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/en/1EIY/labs/pptx/lab3_real_time_coding.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/lab3_real_time_coding.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flabs%2Fpptx%2Flab3_real_time_coding.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flabs%2Fpptx%2Flab3_real_time_coding.pptx"
+        },
+        {
+          "label": "BITSEY Core Engine (sim.py)",
+          "kind": "code",
+          "local_path": "bitsey/sim.py",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim.py",
+          "url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim.py",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim.py"
+        },
+        {
+          "label": "BITSEY GHK & Pump Toolbox (sim_toolbox.py)",
+          "kind": "code",
+          "local_path": "bitsey/sim_toolbox.py",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim_toolbox.py",
+          "url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim_toolbox.py",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim_toolbox.py"
+        }
+      ]
     },
     {
       "id": "FND-BIO-01",
@@ -380,7 +909,27 @@
         "explanation": "When [M] = K_M, ([M]/K_M)^N = 1^N = 1, so H_inv(K_M) = 1 / (1 + 1) = 0.5 for every N. Increasing N steepens the slope (gain) around K_M without shifting the 50% point.",
         "automated_check": "check_fnd_bio_01_hill_inverter",
         "last_verified_output": "Hill inverter H_inv(K_M) = 0.500 across N in {1, 2, 5, 10}"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 4a Slides 1\u201325: Bio Backgrounder (4a_bio_backgrounder.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/4a_bio_backgrounder.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4a_bio_backgrounder.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/4a_bio_backgrounder.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4a_bio_backgrounder.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4a_bio_backgrounder.pptx",
+          "slides": "1-25"
+        },
+        {
+          "label": "Hill Gate Implementation (sim.py)",
+          "kind": "code",
+          "local_path": "bitsey/sim.py",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim.py",
+          "url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim.py",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim.py"
+        }
+      ]
     },
     {
       "id": "U1-BIO-01",
@@ -413,7 +962,37 @@
         "explanation": "Because random-walk mean-squared displacement obeys <x^2> = 2*D*t, diffusing n times farther takes n^2 times longer. Over 1 meter (a human leg), diffusion would take years\u2014which is why large animals evolved bioelectricity!",
         "automated_check": "check_u1_bio_01_diffusion_scaling",
         "last_verified_output": "t(100 um) / t(10 um) = 100x (5.00 s vs 0.05 s)"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 1a Slides 21\u201328 (1a_bioelec_SS.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "slides": "21-28"
+        },
+        {
+          "label": "Lecture 2a Slide 6: Diffusion Scaling (2a_neurons.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/2a_neurons.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2a_neurons.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/2a_neurons.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2a_neurons.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2a_neurons.pptx",
+          "slides": "6"
+        },
+        {
+          "label": "Real Lab 1: Skittles Diffusion (lab_skittles.pdf)",
+          "kind": "lab",
+          "local_path": "course-materials/ee123-labs/lab_skittles.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/real_labs/lab_skittles.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/lab_skittles.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/real_labs/lab_skittles.pdf"
+        }
+      ]
     },
     {
       "id": "U1-BIO-02",
@@ -448,7 +1027,19 @@
         "explanation": "In the crowded nanoworld, friction/drag is proportional to velocity. Terminal velocity is reached almost instantaneously where drag equals electrostatic force f = q*V_mem/L, giving Ohm's Law I = G*V.",
         "automated_check": "check_u1_bio_02_einstein_drift",
         "last_verified_output": "Mobility u = D/(k_B*T) = 2.337e+02 m/(N*s) at T=310 K"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 1a Slides 29\u201340: Ion Drift & Ohm's Law (1a_bioelec_SS.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "slides": "29-40"
+        }
+      ]
     },
     {
       "id": "U1-BIO-03",
@@ -480,7 +1071,19 @@
         "explanation": "V_N,K = 26 mV * ln(20 / 400) = 26 * (-2.9957) = -77.9 mV. V_N,Na = 26 mV * ln(440 / 50) = 26 * (2.1748) = +56.5 mV.",
         "automated_check": "check_u1_bio_03_nernst_squid",
         "last_verified_output": "Squid Nernst: V_K=-77.9 mV, V_Na=+56.5 mV, V_Cl=-61.8 mV"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 1a Slides 41\u201359: Nernst Equation (1a_bioelec_SS.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "slides": "41-59"
+        }
+      ]
     },
     {
       "id": "U1-BIO-04",
@@ -513,7 +1116,27 @@
         "explanation": "Because Cl- has no pump in our model, steady state (d[Cl-]/dt = 0) requires its net channel current (drift + diffusion) to be zero, meaning V_mem settles to V_N,Cl. For Na+ and K+, passive channel leak is balanced by active Na+/K+-ATPase pumping.",
         "automated_check": "check_u1_bio_04_pump_ss_balance",
         "last_verified_output": "Na+/K+ pump stoichiometry ratio |f_Na / f_K| = 1.500 (exact 3:2)"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 1a Slides 60\u201381: Na+/K+ Pumps & SS (1a_bioelec_SS.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "slides": "60-81"
+        },
+        {
+          "label": "GHK & Na+/K+-ATPase Model (sim_toolbox.py)",
+          "kind": "code",
+          "local_path": "bitsey/sim_toolbox.py",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim_toolbox.py",
+          "url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim_toolbox.py",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim_toolbox.py"
+        }
+      ]
     },
     {
       "id": "U1-LAB-01",
@@ -546,7 +1169,35 @@
         "explanation": "Verified directly by running BITSEY: SS1 and SS2 all converge to -49.74 mV (restorative negative feedback erases initial concentration perturbations). In SS3, cell #0 is -49.74 mV, cell #1 (2x D_Na) is -37.11 mV, cell #2 (2x D_K) is -59.54 mV, and cell #3 (2x D_Cl) is -49.74 mV.",
         "automated_check": "check_u1_lab_01_bitsey_ss",
         "last_verified_output": "BITSEY SS2 converged to -49.84 mV across all 4 cells; SS3 V_mem = [-49.8, -39.0, -58.6, -49.8] mV"
-      }
+      },
+      "materials": [
+        {
+          "label": "Sim Lab 2 Manual: Steady-State Bioelectricity (slab_simple_SS.pdf)",
+          "kind": "lab",
+          "local_path": "course-materials/ee123-labs/slab_simple_SS.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_simple_SS.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/slab_simple_SS.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_simple_SS.pdf"
+        },
+        {
+          "label": "Sim Lab 2 BITSEY Script (main_sim_SS.py)",
+          "kind": "code",
+          "local_path": "bitsey/main_sim_SS.py",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/main_sim_SS.py",
+          "url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/main_sim_SS.py",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/code/main_sim_SS.py"
+        },
+        {
+          "label": "Lecture 1a Reference Slides (1a_bioelec_SS.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+          "slides": "60-81"
+        }
+      ]
     },
     {
       "id": "U1-BIO-05",
@@ -580,7 +1231,35 @@
         "explanation": "Because C_mem is tiny, moving < 0.01% of intracellular ions charges the membrane in milliseconds until I_Na + I_K + I_Cl + I_pump = 0 (KCL). At that QSS voltage, individual ions are still unbalanced and take hours to alter bulk concentrations.",
         "automated_check": "check_u1_bio_05_bitsey_qss",
         "last_verified_output": "BITSEY QSS2: initial V_mem [-80.4..-32.2] mV settled in 2.0 s to -56.98 mV"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 1b Slides 1\u201336: Quasi-Steady State (1b_bioelec_QSS.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/1b_bioelec_QSS.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1b_bioelec_QSS.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/1b_bioelec_QSS.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1b_bioelec_QSS.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1b_bioelec_QSS.pptx",
+          "slides": "1-36"
+        },
+        {
+          "label": "Sim Lab 3 Manual: QSS Settling (slab_simple_QSS.pdf)",
+          "kind": "lab",
+          "local_path": "course-materials/ee123-labs/slab_simple_QSS.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_simple_QSS.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/slab_simple_QSS.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_simple_QSS.pdf"
+        },
+        {
+          "label": "Sim Lab 3 BITSEY Script (main_sim_QSS.py)",
+          "kind": "code",
+          "local_path": "bitsey/main_sim_QSS.py",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/main_sim_QSS.py",
+          "url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/main_sim_QSS.py",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/code/main_sim_QSS.py"
+        }
+      ]
     },
     {
       "id": "U2-NEU-01",
@@ -613,7 +1292,44 @@
         "explanation": "Fast m (tau_m = 1) launches the positive-feedback Na+ spike; slower h and n (tau_h, tau_n) provide the negative feedback that turns off Na+ and turns on K+. Slowing tau_h and tau_n lets V_mem climb higher toward V_N,Na and widens the spike.",
         "automated_check": "check_u2_neu_01_bitsey_hh",
         "last_verified_output": "BITSEY HH Neuron: peak V_mem = 12.5 mV (tau_h=10) vs +56.2 mV (tau_h=50)"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 2a Slides 8\u201314: Hodgkin-Huxley Neurons (2a_neurons.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/2a_neurons.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2a_neurons.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/2a_neurons.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2a_neurons.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2a_neurons.pptx",
+          "slides": "8-14"
+        },
+        {
+          "label": "Sim Lab 4 Manual: Building a Neuron (slab_neurons.pdf)",
+          "kind": "lab",
+          "local_path": "course-materials/ee123-labs/slab_neurons.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_neurons.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/slab_neurons.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_neurons.pdf"
+        },
+        {
+          "label": "Sim Lab 4 BITSEY Script (main_sim_neuron.py)",
+          "kind": "code",
+          "local_path": "bitsey/main_sim_neuron.py",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/main_sim_neuron.py",
+          "url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/main_sim_neuron.py",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/code/main_sim_neuron.py"
+        },
+        {
+          "label": "EN 01 Lec 2 Slides (2_neurons_etc.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/en01-lectures/2_neurons_etc.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/2_neurons_etc.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/2_neurons_etc.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F2_neurons_etc.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F2_neurons_etc.pptx"
+        }
+      ]
     },
     {
       "id": "U2-NEU-02",
@@ -645,7 +1361,28 @@
         "explanation": "By Q = C*V, thicker insulation (smaller C) means a tiny axial current changes V_mem rapidly. Because myelin blocks ion channels, bare Nodes of Ranvier are spaced periodically to regenerate the decaying signal.",
         "automated_check": "check_u2_neu_02_myelin_capacitance",
         "last_verified_output": "100 myelin layers reduce C_mem from 0.05 to 0.0005 F/m^2"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 2a Slides 15\u201331: Myelin & Synapses (2a_neurons.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/2a_neurons.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2a_neurons.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/2a_neurons.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2a_neurons.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2a_neurons.pptx",
+          "slides": "15-31"
+        },
+        {
+          "label": "EN 01 Lec 2 Slides (2_neurons_etc.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/en01-lectures/2_neurons_etc.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/2_neurons_etc.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/2_neurons_etc.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F2_neurons_etc.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F2_neurons_etc.pptx"
+        }
+      ]
     },
     {
       "id": "U2-NEU-03",
@@ -678,7 +1415,45 @@
         "explanation": "Fewer surviving axons produce a smaller Compound Muscle Action Potential (CMAP), whereas loss of myelin increases C and slows propagation velocity. In DSP (EN01 Lab 4), averaging across an integer number of 60 Hz cycles cancels sinusoidal power-line interference.",
         "automated_check": "check_u2_neu_03_semg_dsp",
         "last_verified_output": "16-sample moving average of 60 Hz noise at 960 Hz = 5.62e-17"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 2b Slides 10\u201329: Motor Units, sEMG & NCS (2b_EMG_SCS_electroceuticals.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2b_EMG_SCS_electroceuticals.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2b_EMG_SCS_electroceuticals.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2b_EMG_SCS_electroceuticals.pptx",
+          "slides": "10-29"
+        },
+        {
+          "label": "Real Lab 5 Manual: Surface EMG (lab_semg.pdf)",
+          "kind": "lab",
+          "local_path": "course-materials/ee123-labs/lab_semg.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/real_labs/lab_sEMG/lab_semg.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/lab_semg.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/real_labs/lab_sEMG/lab_semg.pdf"
+        },
+        {
+          "label": "EN 01 Lab 4 Slides: Moving Avg & RMS (lab4_moving_avg.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/en01-lectures/lab4_moving_avg.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/en/1EIY/labs/pptx/lab4_moving_avg.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/lab4_moving_avg.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flabs%2Fpptx%2Flab4_moving_avg.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flabs%2Fpptx%2Flab4_moving_avg.pptx"
+        },
+        {
+          "label": "EN 01 Lec 4 Slides: Frequency Domain (4_frequency_domain.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/en01-lectures/4_frequency_domain.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/4_frequency_domain.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/4_frequency_domain.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F4_frequency_domain.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F4_frequency_domain.pptx"
+        }
+      ]
     },
     {
       "id": "U2-NEU-04",
@@ -710,7 +1485,27 @@
         "explanation": "TMR uses denervated muscle patches as biological amplifiers for severed peripheral motor nerves, creating independent sEMG channels without cross-talk from the muscle's original innervation.",
         "automated_check": "check_u2_neu_04_prosthetic_control",
         "last_verified_output": "Co-contraction mode-switch logic & differential drive verified"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 2b Slides 30\u201344: Prosthetics, TMR & AMI (2b_EMG_SCS_electroceuticals.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2b_EMG_SCS_electroceuticals.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2b_EMG_SCS_electroceuticals.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2b_EMG_SCS_electroceuticals.pptx",
+          "slides": "30-44"
+        },
+        {
+          "label": "Real Lab 5 Q3: Prosthetic Control (lab_semg.pdf)",
+          "kind": "lab",
+          "local_path": "course-materials/ee123-labs/lab_semg.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/real_labs/lab_sEMG/lab_semg.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/lab_semg.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/real_labs/lab_sEMG/lab_semg.pdf"
+        }
+      ]
     },
     {
       "id": "U2-NEU-05",
@@ -742,7 +1537,19 @@
         "explanation": "Conventional SCS (35-80 Hz) stimulates A-beta touch fibers to close the pain gate (creating paresthesia). 10 kHz SCS is paresthesia-free and takes hours/days to take effect, directly modulating dorsal-horn interneurons.",
         "automated_check": "check_u2_neu_05_gate_control",
         "last_verified_output": "Gate-Control model: unrubbed pain=1.00 -> rubbed/SCS pain=0.00"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 2b Slides 45\u201382: Pain Gate-Control, SCS & Electroceuticals (2b_EMG_SCS_electroceuticals.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2b_EMG_SCS_electroceuticals.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2b_EMG_SCS_electroceuticals.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2b_EMG_SCS_electroceuticals.pptx",
+          "slides": "45-82"
+        }
+      ]
     },
     {
       "id": "U3-CRD-01",
@@ -775,7 +1582,28 @@
         "explanation": "When cell #1 depolarizes slightly ahead of cell #2, current flows through the gap junction G_GJ*(V_1 - V_2), accelerating cell #2's depolarization and synchronizing the pacemaker network.",
         "automated_check": "check_u3_crd_01_gj_entrainment",
         "last_verified_output": "Depolarized SA cell #1 sources +20.0 pA into lagging neighbor #2"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 3 Slides 1\u201322: Gap Junctions & SA Node Entrainment (3_GJs_cardiac.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+          "slides": "1-22"
+        },
+        {
+          "label": "EN 01 Lec 3 Slides: Cardiac Bioelectricity (3_cardiac.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/en01-lectures/3_cardiac.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/3_cardiac.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/3_cardiac.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F3_cardiac.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F3_cardiac.pptx"
+        }
+      ]
     },
     {
       "id": "U3-CRD-02",
@@ -810,7 +1638,35 @@
         "explanation": "Lead I = 0.3 - (-0.2) = 0.5 mV; Lead II = 1.0 - (-0.2) = 1.2 mV; Lead III = 1.0 - 0.3 = 0.7 mV. Notice Lead I + Lead III = 0.5 + 0.7 = 1.2 mV = Lead II (KVL!), and W = (-0.2 + 0.3 + 1.0)/3 = 0.367 mV.",
         "automated_check": "check_u3_crd_02_ecg_leads",
         "last_verified_output": "Einthoven's Law: Lead I (0.5) + Lead III (0.7) = Lead II (1.2 mV), W=0.367 mV"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 3 Slides 23\u201342: Cardiac Dipole & 6/12-Lead ECG (3_GJs_cardiac.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+          "slides": "23-42"
+        },
+        {
+          "label": "Real Lab 6 Manual: 6-Lead ECG (lab_ecg.pdf)",
+          "kind": "lab",
+          "local_path": "course-materials/ee123-labs/lab_ecg.pdf",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/real_labs/lab_ECG/lab_ecg.pdf",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/lab_ecg.pdf",
+          "url": "https://www.ece.tufts.edu/ee/123/real_labs/lab_ECG/lab_ecg.pdf"
+        },
+        {
+          "label": "6-Lead ECG Plotter (6lead_plot.py)",
+          "kind": "code",
+          "local_path": "course-materials/ee123-labs/6lead_plot.py",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/6lead_plot.py",
+          "url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/course-materials/ee123-labs/6lead_plot.py",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/real_labs/lab_ECG/6lead_plot.py"
+        }
+      ]
     },
     {
       "id": "U3-CRD-03",
@@ -842,7 +1698,19 @@
         "explanation": "Because each upstream pacemaker fires before the downstream backup completes its slower Phase-4 ramp, the fastest intact pacemaker dominates cleanly without collisions, while providing automatic triple-redundant fail-safe backup.",
         "automated_check": "check_u3_crd_03_overdrive_suppression",
         "last_verified_output": "Pacemaker periods: T_SA=1.00s < T_AV=1.50s < T_Purkinje=3.00s"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 3 Slides 43\u201382: Arrhythmias, Fail-Safes & Pacemakers (3_GJs_cardiac.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+          "slides": "43-82"
+        }
+      ]
     },
     {
       "id": "U4-MOR-01",
@@ -876,7 +1744,28 @@
         "explanation": "Without altering DNA sequence, transiently altering V_mem or gap-junctional connectivity rewrites the tissue-level anatomical target pattern (e.g., permanently converting a 1-headed worm into a 2-headed worm that continues regenerating 2 heads).",
         "automated_check": "check_u4_mor_01_layered_api",
         "last_verified_output": "2-layer Morphogenesis API -> GRN architecture verified"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 4b Slides 1\u201353: Weird Nature & Morphogenesis (4b_morphogenesis.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/4b_morphogenesis.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4b_morphogenesis.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/4b_morphogenesis.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4b_morphogenesis.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4b_morphogenesis.pptx",
+          "slides": "1-53"
+        },
+        {
+          "label": "EN 01 Lec 5 Slides: Worms & Regeneration (5_worms.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/en01-lectures/5_worms.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/5_worms.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/5_worms.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F5_worms.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F5_worms.pptx"
+        }
+      ]
     },
     {
       "id": "U4-MOR-02",
@@ -910,7 +1799,36 @@
         "explanation": "Nernst electrodiffusion drives negatively charged M toward the more positive head cell; the Hill inverter maps high [M] -> low G_K -> higher V_mem, closing the positive-feedback loop so any amputated slice can re-establish polarity within a viable window of R_GJ.",
         "automated_check": "check_u4_mor_02_bitsey_worm",
         "last_verified_output": "BITSEY 5-cell planarian V_mem gradient: tail=-51.9 mV -> head=-11.7 mV"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 4c Slides 1\u201355: Planarian Worm Model in BITSEY (4c_worm.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/4c_worm.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4c_worm.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/4c_worm.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4c_worm.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4c_worm.pptx",
+          "slides": "1-55"
+        },
+        {
+          "label": "EN 01 Lec 5 Slides: Worms & Regeneration (5_worms.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/en01-lectures/5_worms.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/5_worms.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/en01-lectures/5_worms.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F5_worms.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F5_worms.pptx"
+        },
+        {
+          "label": "BITSEY Simulator Engine (sim.py)",
+          "kind": "code",
+          "local_path": "bitsey/sim.py",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim.py",
+          "url": "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main/bitsey/sim.py",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim.py"
+        }
+      ]
     },
     {
       "id": "U4-CAN-01",
@@ -942,7 +1860,24 @@
         "explanation": "Hyperpolarizing ion-channel interventions (or forcing GJ coupling) can normalize tumorigenesis even in the presence of oncogenic mutations, whereas depolarizing V_mem and blocking GJs can induce invasive, tumor-like growth without genetic mutation.",
         "automated_check": "check_u4_can_01_cancer_depolarization",
         "last_verified_output": "Differentiated V_mem (-80.0 mV) << Tumor/Stem V_mem (-20.0 mV)"
-      }
+      },
+      "materials": [
+        {
+          "label": "Lecture 4c Slides 1\u201318: Bioelectricity & Cancer (4c_cancer.pptx)",
+          "kind": "slides",
+          "local_path": "course-materials/ee123-lectures/4c_cancer.pptx",
+          "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4c_cancer.pptx",
+          "repo_url": "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main/course-materials/ee123-lectures/4c_cancer.pptx",
+          "viewer_url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4c_cancer.pptx",
+          "url": "https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4c_cancer.pptx",
+          "slides": "1-18"
+        },
+        {
+          "label": "EE 123 Final Projects Guide",
+          "kind": "doc",
+          "url": "https://docs.google.com/document/d/e/2PACX-1vTn2cKmhyFtEtFB8Pj-og4QQSVzeNIVcnzkly0FlbmAQHMGKZRkETfDlIigx77DYYmsuLsNLWLVmQsP/pub"
+        }
+      ]
     }
   ]
 }

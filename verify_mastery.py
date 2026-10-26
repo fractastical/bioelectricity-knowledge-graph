@@ -745,6 +745,429 @@ CHECK_REGISTRY = {
     "check_u4_can_01_cancer_depolarization": check_u4_can_01_cancer_depolarization,
 }
 
+GITHUB_RAW_BASE = "https://github.com/fractastical/bioelectricity-knowledge-graph/raw/main"
+GITHUB_BLOB_BASE = "https://github.com/fractastical/bioelectricity-knowledge-graph/blob/main"
+OFFICE_VIEWER_PREFIX = "https://view.officeapps.live.com/op/view.aspx?src="
+
+
+def _slide_item(label, rel_path, tufts_url, slides_range=None):
+    from urllib.parse import quote
+    repo_url = f"{GITHUB_RAW_BASE}/{rel_path}"
+    viewer_url = f"{OFFICE_VIEWER_PREFIX}{quote(tufts_url, safe='')}"
+    item = {
+        "label": label,
+        "kind": "slides",
+        "local_path": rel_path,
+        "tufts_url": tufts_url,
+        "repo_url": repo_url,
+        "viewer_url": viewer_url,
+        "url": viewer_url,
+    }
+    if slides_range:
+        item["slides"] = slides_range
+    return item
+
+
+def _pdf_item(label, rel_path, tufts_url, kind="lab"):
+    repo_url = f"{GITHUB_BLOB_BASE}/{rel_path}"
+    return {
+        "label": label,
+        "kind": kind,
+        "local_path": rel_path,
+        "tufts_url": tufts_url,
+        "repo_url": repo_url,
+        "url": tufts_url,
+    }
+
+
+def _code_item(label, rel_path, tufts_url=None):
+    repo_url = f"{GITHUB_BLOB_BASE}/{rel_path}"
+    item = {
+        "label": label,
+        "kind": "code",
+        "local_path": rel_path,
+        "repo_url": repo_url,
+        "url": repo_url,
+    }
+    if tufts_url:
+        item["tufts_url"] = tufts_url
+    return item
+
+
+def _ext_item(label, url, kind="khan"):
+    return {
+        "label": label,
+        "kind": kind,
+        "url": url,
+    }
+
+
+COURSE_SLIDE_DECKS = [
+    {
+        "id": "ee123-0-day1",
+        "course": "EE 123",
+        "unit": "Unit 0",
+        "title": "Day 1: Course Intro & Bioelectricity Overview",
+        "filename": "0_day1.pptx",
+        "slide_count": 25,
+        "local_path": "course-materials/ee123-lectures/0_day1.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/0_day1.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/0_day1.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F0_day1.pptx",
+        "nodes": ["KA-PHYS-01"],
+    },
+    {
+        "id": "ee123-1a-ss",
+        "course": "EE 123",
+        "unit": "Unit 1a",
+        "title": "How Cells Make Voltages: Steady-State Bioelectricity",
+        "filename": "1a_bioelec_SS.pptx",
+        "slide_count": 81,
+        "local_path": "course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/1a_bioelec_SS.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1a_bioelec_SS.pptx",
+        "nodes": ["KA-PHYS-01", "KA-PHYS-02", "U1-BIO-01", "U1-BIO-02", "U1-BIO-03", "U1-BIO-04", "U1-LAB-01"],
+    },
+    {
+        "id": "ee123-1b-qss",
+        "course": "EE 123",
+        "unit": "Unit 1b",
+        "title": "How Neurons Work So Fast: Quasi-Steady-State Bioelectricity",
+        "filename": "1b_bioelec_QSS.pptx",
+        "slide_count": 36,
+        "local_path": "course-materials/ee123-lectures/1b_bioelec_QSS.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/1b_bioelec_QSS.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/1b_bioelec_QSS.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F1b_bioelec_QSS.pptx",
+        "nodes": ["KA-CKT-03", "U1-BIO-05"],
+    },
+    {
+        "id": "ee123-bg-circuits",
+        "course": "EE 123",
+        "unit": "Backgrounder",
+        "title": "Circuits Backgrounder (Ohm, KVL/KCL, Nodal Analysis, Thévenin & RC)",
+        "filename": "backgrounders_circuits.pptx",
+        "slide_count": 25,
+        "local_path": "course-materials/ee123-lectures/backgrounders_circuits.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/backgrounders_circuits.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2Fbackgrounders_circuits.pptx",
+        "nodes": ["KA-CKT-01", "KA-CKT-02", "KA-CKT-03", "KA-CKT-04"],
+    },
+    {
+        "id": "ee123-sam-max",
+        "course": "EE 123",
+        "unit": "Fluency Drills",
+        "title": "Sam & Max Circuit Problems (Dividers, KCL & Capacitors)",
+        "filename": "sam_and_max_ckt_problems.pptx",
+        "slide_count": 19,
+        "local_path": "course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/misc/sam_and_max_ckt_problems.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Fmisc%2Fsam_and_max_ckt_problems.pptx",
+        "nodes": ["KA-PHYS-03", "KA-CKT-02"],
+    },
+    {
+        "id": "ee123-2a-neurons",
+        "course": "EE 123",
+        "unit": "Unit 2a",
+        "title": "Neurons, Hodgkin-Huxley Action Potentials, Myelin & Synapses",
+        "filename": "2a_neurons.pptx",
+        "slide_count": 31,
+        "local_path": "course-materials/ee123-lectures/2a_neurons.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2a_neurons.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/2a_neurons.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2a_neurons.pptx",
+        "nodes": ["U1-BIO-01", "U2-NEU-01", "U2-NEU-02"],
+    },
+    {
+        "id": "ee123-2b-emg-scs",
+        "course": "EE 123",
+        "unit": "Unit 2b",
+        "title": "Nervous System, sEMG, Prosthetics, Pain Gate-Control & Electroceuticals",
+        "filename": "2b_EMG_SCS_electroceuticals.pptx",
+        "slide_count": 82,
+        "local_path": "course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/2b_EMG_SCS_electroceuticals.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F2b_EMG_SCS_electroceuticals.pptx",
+        "nodes": ["U2-NEU-03", "U2-NEU-04", "U2-NEU-05"],
+    },
+    {
+        "id": "ee123-3-cardiac",
+        "course": "EE 123",
+        "unit": "Unit 3",
+        "title": "Gap Junctions & Cardiac Bioelectricity: Engineering a Fail-Safe Heart",
+        "filename": "3_GJs_cardiac.pptx",
+        "slide_count": 82,
+        "local_path": "course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/3_GJs_cardiac.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F3_GJs_cardiac.pptx",
+        "nodes": ["FND-MATH-01", "U3-CRD-01", "U3-CRD-02", "U3-CRD-03"],
+    },
+    {
+        "id": "ee123-4a-bio",
+        "course": "EE 123",
+        "unit": "Unit 4a",
+        "title": "Biology Backgrounder: Central Dogma, Promoters & Transcription Factors",
+        "filename": "4a_bio_backgrounder.pptx",
+        "slide_count": 25,
+        "local_path": "course-materials/ee123-lectures/4a_bio_backgrounder.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4a_bio_backgrounder.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/4a_bio_backgrounder.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4a_bio_backgrounder.pptx",
+        "nodes": ["FND-BIO-01"],
+    },
+    {
+        "id": "ee123-4b-morpho",
+        "course": "EE 123",
+        "unit": "Unit 4b",
+        "title": "Weird Nature & Morphogenesis: How Your Body Got Its Shape",
+        "filename": "4b_morphogenesis.pptx",
+        "slide_count": 53,
+        "local_path": "course-materials/ee123-lectures/4b_morphogenesis.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4b_morphogenesis.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/4b_morphogenesis.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4b_morphogenesis.pptx",
+        "nodes": ["U4-MOR-01"],
+    },
+    {
+        "id": "ee123-4c-worm",
+        "course": "EE 123",
+        "unit": "Unit 4c (Worms)",
+        "title": "Planarian Worm Regeneration: Electrodiffusion & Hill Feedback in BITSEY",
+        "filename": "4c_worm.pptx",
+        "slide_count": 55,
+        "local_path": "course-materials/ee123-lectures/4c_worm.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4c_worm.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/4c_worm.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4c_worm.pptx",
+        "nodes": ["U4-MOR-02"],
+    },
+    {
+        "id": "ee123-4c-cancer",
+        "course": "EE 123",
+        "unit": "Unit 4c (Cancer)",
+        "title": "Bioelectric Oncology: Depolarization, GJ Isolation & Atavism",
+        "filename": "4c_cancer.pptx",
+        "slide_count": 18,
+        "local_path": "course-materials/ee123-lectures/4c_cancer.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/ee/123/lectures/4c_cancer.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/ee123-lectures/4c_cancer.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fee%2F123%2Flectures%2F4c_cancer.pptx",
+        "nodes": ["U4-CAN-01"],
+    },
+    {
+        "id": "en01-1-elec101",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 1",
+        "title": "Electricity 101: Charge, Voltage, Current & Resistors",
+        "filename": "1_electricity_101.pptx",
+        "local_path": "course-materials/en01-lectures/1_electricity_101.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/1_electricity_101.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/en01-lectures/1_electricity_101.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F1_electricity_101.pptx",
+        "nodes": ["KA-PHYS-01", "KA-PHYS-02", "KA-CKT-01"],
+    },
+    {
+        "id": "en01-2-neurons",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 2",
+        "title": "Neurons, Action Potentials & Bioelectric Signaling",
+        "filename": "2_neurons_etc.pptx",
+        "local_path": "course-materials/en01-lectures/2_neurons_etc.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/2_neurons_etc.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/en01-lectures/2_neurons_etc.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F2_neurons_etc.pptx",
+        "nodes": ["U2-NEU-01", "U2-NEU-02"],
+    },
+    {
+        "id": "en01-3-cardiac",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 3",
+        "title": "Cardiac Bioelectricity & ECG",
+        "filename": "3_cardiac.pptx",
+        "local_path": "course-materials/en01-lectures/3_cardiac.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/3_cardiac.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/en01-lectures/3_cardiac.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F3_cardiac.pptx",
+        "nodes": ["U3-CRD-01", "U3-CRD-02", "U3-CRD-03"],
+    },
+    {
+        "id": "en01-4-freq",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 4",
+        "title": "Frequency Domain & Spectral Signal Analysis",
+        "filename": "4_frequency_domain.pptx",
+        "local_path": "course-materials/en01-lectures/4_frequency_domain.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/4_frequency_domain.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/en01-lectures/4_frequency_domain.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F4_frequency_domain.pptx",
+        "nodes": ["U2-NEU-03"],
+    },
+    {
+        "id": "en01-5-worms",
+        "course": "EN 01",
+        "unit": "EN 01 Lec 5",
+        "title": "Planarian Worms & Bioelectric Regeneration",
+        "filename": "5_worms.pptx",
+        "local_path": "course-materials/en01-lectures/5_worms.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/lectures/5_worms.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/en01-lectures/5_worms.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flectures%2F5_worms.pptx",
+        "nodes": ["U4-MOR-01", "U4-MOR-02"],
+    },
+    {
+        "id": "en01-lab3-rt",
+        "course": "EN 01",
+        "unit": "EN 01 Lab 3",
+        "title": "Real-Time Coding in Python",
+        "filename": "lab3_real_time_coding.pptx",
+        "local_path": "course-materials/en01-lectures/lab3_real_time_coding.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/labs/pptx/lab3_real_time_coding.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/en01-lectures/lab3_real_time_coding.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flabs%2Fpptx%2Flab3_real_time_coding.pptx",
+        "nodes": ["FND-PROG-01"],
+    },
+    {
+        "id": "en01-lab4-mavg",
+        "course": "EN 01",
+        "unit": "EN 01 Lab 4",
+        "title": "Moving-Average & Segment-RMS Filtering",
+        "filename": "lab4_moving_avg.pptx",
+        "local_path": "course-materials/en01-lectures/lab4_moving_avg.pptx",
+        "tufts_url": "https://www.ece.tufts.edu/en/1EIY/labs/pptx/lab4_moving_avg.pptx",
+        "repo_url": f"{GITHUB_RAW_BASE}/course-materials/en01-lectures/lab4_moving_avg.pptx",
+        "viewer_url": f"{OFFICE_VIEWER_PREFIX}https%3A%2F%2Fwww.ece.tufts.edu%2Fen%2F1EIY%2Flabs%2Fpptx%2Flab4_moving_avg.pptx",
+        "nodes": ["U2-NEU-03"],
+    },
+]
+
+MATERIALS_DATA = {
+    "KA-PHYS-01": [
+        _slide_item("Lecture 1a Slides 7–16 (1a_bioelec_SS.pptx)", "course-materials/ee123-lectures/1a_bioelec_SS.pptx", "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx", "7-16"),
+        _slide_item("Day 1 Intro Slides (0_day1.pptx)", "course-materials/ee123-lectures/0_day1.pptx", "https://www.ece.tufts.edu/ee/123/lectures/0_day1.pptx", "1-25"),
+        _ext_item("Khan Academy: AP Physics 2 (Charge & Field)", "https://www.khanacademy.org/science/ap-physics-2"),
+    ],
+    "KA-PHYS-02": [
+        _slide_item("Lecture 1a Slides 15–18 (1a_bioelec_SS.pptx)", "course-materials/ee123-lectures/1a_bioelec_SS.pptx", "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx", "15-18"),
+        _slide_item("EN 01 Lec 1 Slides 4–11 (1_electricity_101.pptx)", "course-materials/en01-lectures/1_electricity_101.pptx", "https://www.ece.tufts.edu/en/1EIY/lectures/1_electricity_101.pptx", "4-11"),
+        _ext_item("Khan Academy: AP Physics 2 (Electric Potential)", "https://www.khanacademy.org/science/ap-physics-2"),
+    ],
+    "KA-PHYS-03": [
+        _slide_item("Sam & Max Circuit Slides 14–19 (sam_and_max_ckt_problems.pptx)", "course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx", "https://www.ece.tufts.edu/ee/123/misc/sam_and_max_ckt_problems.pptx", "14-19"),
+        _pdf_item("Backgrounders Placement Quiz Q1b (backgrounders_quiz.pdf)", "course-materials/syllabi-and-quizzes/backgrounders_quiz.pdf", "https://www.ece.tufts.edu/ee/123/misc/backgrounders_quiz.pdf", "quiz"),
+        _ext_item("Khan Academy: AP Physics 2 & EE (Capacitors)", "https://www.khanacademy.org/science/electrical-engineering"),
+    ],
+    "KA-CKT-01": [
+        _slide_item("Circuits Backgrounder Slides 2–3, 7–8, 12 (backgrounders_circuits.pptx)", "course-materials/ee123-lectures/backgrounders_circuits.pptx", "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx", "2-12"),
+        _pdf_item("Backgrounders Placement Quiz Q1a (backgrounders_quiz.pdf)", "course-materials/syllabi-and-quizzes/backgrounders_quiz.pdf", "https://www.ece.tufts.edu/ee/123/misc/backgrounders_quiz.pdf", "quiz"),
+        _ext_item("Khan Academy: EE Circuit Analysis", "https://www.khanacademy.org/science/electrical-engineering"),
+    ],
+    "KA-CKT-02": [
+        _slide_item("Circuits Backgrounder Slides 4–11 (backgrounders_circuits.pptx)", "course-materials/ee123-lectures/backgrounders_circuits.pptx", "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx", "4-11"),
+        _slide_item("Sam & Max Circuit Slides 4–13 (sam_and_max_ckt_problems.pptx)", "course-materials/ee123-lectures/sam_and_max_ckt_problems.pptx", "https://www.ece.tufts.edu/ee/123/misc/sam_and_max_ckt_problems.pptx", "4-13"),
+        _ext_item("Khan Academy: Kirchhoff's Laws & Dividers", "https://www.khanacademy.org/science/electrical-engineering"),
+    ],
+    "KA-CKT-03": [
+        _slide_item("Circuits Backgrounder Slides 14–17 (backgrounders_circuits.pptx)", "course-materials/ee123-lectures/backgrounders_circuits.pptx", "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx", "14-17"),
+        _slide_item("Lecture 1b Slide 36 (1b_bioelec_QSS.pptx)", "course-materials/ee123-lectures/1b_bioelec_QSS.pptx", "https://www.ece.tufts.edu/ee/123/lectures/1b_bioelec_QSS.pptx", "36"),
+        _pdf_item("Backgrounders Quiz Part 2 (backgrounders_quiz.pdf)", "course-materials/syllabi-and-quizzes/backgrounders_quiz.pdf", "https://www.ece.tufts.edu/ee/123/misc/backgrounders_quiz.pdf", "quiz"),
+    ],
+    "KA-CKT-04": [
+        _slide_item("Circuits Backgrounder Slides 18–25 (backgrounders_circuits.pptx)", "course-materials/ee123-lectures/backgrounders_circuits.pptx", "https://www.ece.tufts.edu/ee/123/lectures/backgrounders_circuits.pptx", "18-25"),
+        _ext_item("Khan Academy: Thévenin & RC Transients", "https://www.khanacademy.org/science/electrical-engineering"),
+    ],
+    "FND-MATH-01": [
+        _slide_item("Lecture 3 Slide 25: Vector Math Review (3_GJs_cardiac.pptx)", "course-materials/ee123-lectures/3_GJs_cardiac.pptx", "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx", "25"),
+        _pdf_item("Sim Lab 4 Slide 3: HH Gating ODEs (slab_neurons.pdf)", "course-materials/ee123-labs/slab_neurons.pdf", "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_neurons.pdf", "lab"),
+    ],
+    "FND-PROG-01": [
+        _slide_item("EN 01 Lab 3 Slides: Real-Time Python (lab3_real_time_coding.pptx)", "course-materials/en01-lectures/lab3_real_time_coding.pptx", "https://www.ece.tufts.edu/en/1EIY/labs/pptx/lab3_real_time_coding.pptx"),
+        _code_item("BITSEY Core Engine (sim.py)", "bitsey/sim.py", "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim.py"),
+        _code_item("BITSEY GHK & Pump Toolbox (sim_toolbox.py)", "bitsey/sim_toolbox.py", "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim_toolbox.py"),
+    ],
+    "FND-BIO-01": [
+        _slide_item("Lecture 4a Slides 1–25: Bio Backgrounder (4a_bio_backgrounder.pptx)", "course-materials/ee123-lectures/4a_bio_backgrounder.pptx", "https://www.ece.tufts.edu/ee/123/lectures/4a_bio_backgrounder.pptx", "1-25"),
+        _code_item("Hill Gate Implementation (sim.py)", "bitsey/sim.py", "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim.py"),
+    ],
+    "U1-BIO-01": [
+        _slide_item("Lecture 1a Slides 21–28 (1a_bioelec_SS.pptx)", "course-materials/ee123-lectures/1a_bioelec_SS.pptx", "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx", "21-28"),
+        _slide_item("Lecture 2a Slide 6: Diffusion Scaling (2a_neurons.pptx)", "course-materials/ee123-lectures/2a_neurons.pptx", "https://www.ece.tufts.edu/ee/123/lectures/2a_neurons.pptx", "6"),
+        _pdf_item("Real Lab 1: Skittles Diffusion (lab_skittles.pdf)", "course-materials/ee123-labs/lab_skittles.pdf", "https://www.ece.tufts.edu/ee/123/real_labs/lab_skittles.pdf", "lab"),
+    ],
+    "U1-BIO-02": [
+        _slide_item("Lecture 1a Slides 29–40: Ion Drift & Ohm's Law (1a_bioelec_SS.pptx)", "course-materials/ee123-lectures/1a_bioelec_SS.pptx", "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx", "29-40"),
+    ],
+    "U1-BIO-03": [
+        _slide_item("Lecture 1a Slides 41–59: Nernst Equation (1a_bioelec_SS.pptx)", "course-materials/ee123-lectures/1a_bioelec_SS.pptx", "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx", "41-59"),
+    ],
+    "U1-BIO-04": [
+        _slide_item("Lecture 1a Slides 60–81: Na+/K+ Pumps & SS (1a_bioelec_SS.pptx)", "course-materials/ee123-lectures/1a_bioelec_SS.pptx", "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx", "60-81"),
+        _code_item("GHK & Na+/K+-ATPase Model (sim_toolbox.py)", "bitsey/sim_toolbox.py", "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim_toolbox.py"),
+    ],
+    "U1-LAB-01": [
+        _pdf_item("Sim Lab 2 Manual: Steady-State Bioelectricity (slab_simple_SS.pdf)", "course-materials/ee123-labs/slab_simple_SS.pdf", "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_simple_SS.pdf", "lab"),
+        _code_item("Sim Lab 2 BITSEY Script (main_sim_SS.py)", "bitsey/main_sim_SS.py", "https://www.ece.tufts.edu/ee/123/sim_labs/code/main_sim_SS.py"),
+        _slide_item("Lecture 1a Reference Slides (1a_bioelec_SS.pptx)", "course-materials/ee123-lectures/1a_bioelec_SS.pptx", "https://www.ece.tufts.edu/ee/123/lectures/1a_bioelec_SS.pptx", "60-81"),
+    ],
+    "U1-BIO-05": [
+        _slide_item("Lecture 1b Slides 1–36: Quasi-Steady State (1b_bioelec_QSS.pptx)", "course-materials/ee123-lectures/1b_bioelec_QSS.pptx", "https://www.ece.tufts.edu/ee/123/lectures/1b_bioelec_QSS.pptx", "1-36"),
+        _pdf_item("Sim Lab 3 Manual: QSS Settling (slab_simple_QSS.pdf)", "course-materials/ee123-labs/slab_simple_QSS.pdf", "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_simple_QSS.pdf", "lab"),
+        _code_item("Sim Lab 3 BITSEY Script (main_sim_QSS.py)", "bitsey/main_sim_QSS.py", "https://www.ece.tufts.edu/ee/123/sim_labs/code/main_sim_QSS.py"),
+    ],
+    "U2-NEU-01": [
+        _slide_item("Lecture 2a Slides 8–14: Hodgkin-Huxley Neurons (2a_neurons.pptx)", "course-materials/ee123-lectures/2a_neurons.pptx", "https://www.ece.tufts.edu/ee/123/lectures/2a_neurons.pptx", "8-14"),
+        _pdf_item("Sim Lab 4 Manual: Building a Neuron (slab_neurons.pdf)", "course-materials/ee123-labs/slab_neurons.pdf", "https://www.ece.tufts.edu/ee/123/sim_labs/pdf/slab_neurons.pdf", "lab"),
+        _code_item("Sim Lab 4 BITSEY Script (main_sim_neuron.py)", "bitsey/main_sim_neuron.py", "https://www.ece.tufts.edu/ee/123/sim_labs/code/main_sim_neuron.py"),
+        _slide_item("EN 01 Lec 2 Slides (2_neurons_etc.pptx)", "course-materials/en01-lectures/2_neurons_etc.pptx", "https://www.ece.tufts.edu/en/1EIY/lectures/2_neurons_etc.pptx"),
+    ],
+    "U2-NEU-02": [
+        _slide_item("Lecture 2a Slides 15–31: Myelin & Synapses (2a_neurons.pptx)", "course-materials/ee123-lectures/2a_neurons.pptx", "https://www.ece.tufts.edu/ee/123/lectures/2a_neurons.pptx", "15-31"),
+        _slide_item("EN 01 Lec 2 Slides (2_neurons_etc.pptx)", "course-materials/en01-lectures/2_neurons_etc.pptx", "https://www.ece.tufts.edu/en/1EIY/lectures/2_neurons_etc.pptx"),
+    ],
+    "U2-NEU-03": [
+        _slide_item("Lecture 2b Slides 10–29: Motor Units, sEMG & NCS (2b_EMG_SCS_electroceuticals.pptx)", "course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx", "https://www.ece.tufts.edu/ee/123/lectures/2b_EMG_SCS_electroceuticals.pptx", "10-29"),
+        _pdf_item("Real Lab 5 Manual: Surface EMG (lab_semg.pdf)", "course-materials/ee123-labs/lab_semg.pdf", "https://www.ece.tufts.edu/ee/123/real_labs/lab_sEMG/lab_semg.pdf", "lab"),
+        _slide_item("EN 01 Lab 4 Slides: Moving Avg & RMS (lab4_moving_avg.pptx)", "course-materials/en01-lectures/lab4_moving_avg.pptx", "https://www.ece.tufts.edu/en/1EIY/labs/pptx/lab4_moving_avg.pptx"),
+        _slide_item("EN 01 Lec 4 Slides: Frequency Domain (4_frequency_domain.pptx)", "course-materials/en01-lectures/4_frequency_domain.pptx", "https://www.ece.tufts.edu/en/1EIY/lectures/4_frequency_domain.pptx"),
+    ],
+    "U2-NEU-04": [
+        _slide_item("Lecture 2b Slides 30–44: Prosthetics, TMR & AMI (2b_EMG_SCS_electroceuticals.pptx)", "course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx", "https://www.ece.tufts.edu/ee/123/lectures/2b_EMG_SCS_electroceuticals.pptx", "30-44"),
+        _pdf_item("Real Lab 5 Q3: Prosthetic Control (lab_semg.pdf)", "course-materials/ee123-labs/lab_semg.pdf", "https://www.ece.tufts.edu/ee/123/real_labs/lab_sEMG/lab_semg.pdf", "lab"),
+    ],
+    "U2-NEU-05": [
+        _slide_item("Lecture 2b Slides 45–82: Pain Gate-Control, SCS & Electroceuticals (2b_EMG_SCS_electroceuticals.pptx)", "course-materials/ee123-lectures/2b_EMG_SCS_electroceuticals.pptx", "https://www.ece.tufts.edu/ee/123/lectures/2b_EMG_SCS_electroceuticals.pptx", "45-82"),
+    ],
+    "U3-CRD-01": [
+        _slide_item("Lecture 3 Slides 1–22: Gap Junctions & SA Node Entrainment (3_GJs_cardiac.pptx)", "course-materials/ee123-lectures/3_GJs_cardiac.pptx", "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx", "1-22"),
+        _slide_item("EN 01 Lec 3 Slides: Cardiac Bioelectricity (3_cardiac.pptx)", "course-materials/en01-lectures/3_cardiac.pptx", "https://www.ece.tufts.edu/en/1EIY/lectures/3_cardiac.pptx"),
+    ],
+    "U3-CRD-02": [
+        _slide_item("Lecture 3 Slides 23–42: Cardiac Dipole & 6/12-Lead ECG (3_GJs_cardiac.pptx)", "course-materials/ee123-lectures/3_GJs_cardiac.pptx", "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx", "23-42"),
+        _pdf_item("Real Lab 6 Manual: 6-Lead ECG (lab_ecg.pdf)", "course-materials/ee123-labs/lab_ecg.pdf", "https://www.ece.tufts.edu/ee/123/real_labs/lab_ECG/lab_ecg.pdf", "lab"),
+        _code_item("6-Lead ECG Plotter (6lead_plot.py)", "course-materials/ee123-labs/6lead_plot.py", "https://www.ece.tufts.edu/ee/123/real_labs/lab_ECG/6lead_plot.py"),
+    ],
+    "U3-CRD-03": [
+        _slide_item("Lecture 3 Slides 43–82: Arrhythmias, Fail-Safes & Pacemakers (3_GJs_cardiac.pptx)", "course-materials/ee123-lectures/3_GJs_cardiac.pptx", "https://www.ece.tufts.edu/ee/123/lectures/3_GJs_cardiac.pptx", "43-82"),
+    ],
+    "U4-MOR-01": [
+        _slide_item("Lecture 4b Slides 1–53: Weird Nature & Morphogenesis (4b_morphogenesis.pptx)", "course-materials/ee123-lectures/4b_morphogenesis.pptx", "https://www.ece.tufts.edu/ee/123/lectures/4b_morphogenesis.pptx", "1-53"),
+        _slide_item("EN 01 Lec 5 Slides: Worms & Regeneration (5_worms.pptx)", "course-materials/en01-lectures/5_worms.pptx", "https://www.ece.tufts.edu/en/1EIY/lectures/5_worms.pptx"),
+    ],
+    "U4-MOR-02": [
+        _slide_item("Lecture 4c Slides 1–55: Planarian Worm Model in BITSEY (4c_worm.pptx)", "course-materials/ee123-lectures/4c_worm.pptx", "https://www.ece.tufts.edu/ee/123/lectures/4c_worm.pptx", "1-55"),
+        _slide_item("EN 01 Lec 5 Slides: Worms & Regeneration (5_worms.pptx)", "course-materials/en01-lectures/5_worms.pptx", "https://www.ece.tufts.edu/en/1EIY/lectures/5_worms.pptx"),
+        _code_item("BITSEY Simulator Engine (sim.py)", "bitsey/sim.py", "https://www.ece.tufts.edu/ee/123/sim_labs/code/sim.py"),
+    ],
+    "U4-CAN-01": [
+        _slide_item("Lecture 4c Slides 1–18: Bioelectricity & Cancer (4c_cancer.pptx)", "course-materials/ee123-lectures/4c_cancer.pptx", "https://www.ece.tufts.edu/ee/123/lectures/4c_cancer.pptx", "1-18"),
+        _ext_item("EE 123 Final Projects Guide", "https://docs.google.com/document/d/e/2PACX-1vTn2cKmhyFtEtFB8Pj-og4QQSVzeNIVcnzkly0FlbmAQHMGKZRkETfDlIigx77DYYmsuLsNLWLVmQsP/pub", "doc"),
+    ],
+}
+
 
 # ---------------------------------------------------------------------------
 # 3. Graph & Prerequisite Propagation Verification (Math Academy Engine Rules)
@@ -798,16 +1221,29 @@ def main():
     print(f"[DAG CHECK] {n_nodes} nodes, {n_edges} directed prerequisite edges, 0 cycles.")
     print(f"[PROPAGATION CHECK] Verifying 'U3.2 (ECG Lab)' implicitly credits {ecg_anc_count} ancestor modules.\n")
 
+    for deck in COURSE_SLIDE_DECKS:
+        lp = REPO_ROOT / deck["local_path"]
+        assert lp.exists(), f"Missing slide deck on disk: {lp}"
+    kg["course"]["slide_decks"] = COURSE_SLIDE_DECKS
+    print(f"[SLIDE DECKS CHECK] All {len(COURSE_SLIDE_DECKS)} EE 123 & EN 01 slide decks verified on disk and linked.")
+
     passed = 0
     for node in kg["nodes"]:
         nid = node["id"]
+        mats = MATERIALS_DATA.get(nid, [])
+        assert len(mats) > 0, f"No course materials/slides linked for node {nid}"
+        for m in mats:
+            if "local_path" in m:
+                mlp = REPO_ROOT / m["local_path"]
+                assert mlp.exists(), f"Missing linked material on disk for {nid}: {mlp}"
+        node["materials"] = mats
         vdata = VERIFICATION_DATA[nid]
         check_fn = CHECK_REGISTRY[vdata["automated_check"]]
         result_msg = check_fn()
         vdata["last_verified_output"] = result_msg
         node["verification"] = vdata
         passed += 1
-        print(f"  [PASS] {node['code']:6s} ({nid:11s}) | {result_msg}")
+        print(f"  [PASS] {node['code']:6s} ({nid:11s}) | {len(mats)} linked material(s) | {result_msg}")
 
     with open(KG_PATH, "w", encoding="utf-8") as f:
         json.dump(kg, f, indent=2)
